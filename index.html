@@ -1,0 +1,698 @@
+# SpainHome AI — Premium B2B Landing Page
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SpainHome AI — Multilingual AI Platform for Real Estate Agencies</title>
+<meta name="description" content="AI-powered multilingual platform for Spanish real estate agencies. Help international buyers in their own language and increase conversions." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#07111f;
+  color:#ffffff;
+  line-height:1.6;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+header{
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(12px);
+  background:rgba(7,17,31,.75);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  z-index:1000;
+}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 0;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:-0.5px;
+}
+
+.logo span{
+  color:#61dafb;
+}
+
+.nav-links{
+  display:flex;
+  gap:28px;
+}
+
+.nav-links a{
+  color:#c7d2e3;
+  text-decoration:none;
+  font-size:14px;
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:#ffffff;
+}
+
+.cta-btn{
+  background:linear-gradient(135deg,#5b7cff,#61dafb);
+  color:#fff;
+  padding:12px 22px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  display:inline-block;
+  transition:.3s;
+  box-shadow:0 10px 30px rgba(97,218,251,.25);
+}
+
+.cta-btn:hover{
+  transform:translateY(-2px);
+}
+
+.hero{
+  padding:110px 0 80px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:#3b82f6;
+  filter:blur(160px);
+  opacity:.15;
+  top:-180px;
+  right:-100px;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:50px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  padding:10px 16px;
+  border-radius:999px;
+  color:#c7d2e3;
+  font-size:13px;
+  margin-bottom:26px;
+}
+
+.hero h1{
+  font-size:64px;
+  line-height:1.05;
+  margin-bottom:24px;
+  letter-spacing:-2px;
+}
+
+.gradient{
+  background:linear-gradient(135deg,#ffffff,#61dafb);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+  font-size:18px;
+  color:#a9b7ca;
+  margin-bottom:30px;
+  max-width:640px;
+}
+
+.founder{
+  margin-top:26px;
+  color:#7dd3fc;
+  font-size:14px;
+  font-weight:600;
+}
+
+.hero-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.hero-card h3{
+  font-size:24px;
+  margin-bottom:18px;
+}
+
+.metric{
+  display:flex;
+  justify-content:space-between;
+  padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.metric:last-child{
+  border-bottom:none;
+}
+
+.metric strong{
+  color:#61dafb;
+}
+
+section{
+  padding:80px 0;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.section-title h2{
+  font-size:44px;
+  margin-bottom:14px;
+}
+
+.section-title p{
+  color:#9fb0c5;
+  max-width:760px;
+  margin:auto;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;
+  padding:30px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#61dafb;
+}
+
+.card-icon{
+  font-size:34px;
+  margin-bottom:18px;
+}
+
+.card h3{
+  margin-bottom:12px;
+  font-size:22px;
+}
+
+.card p{
+  color:#9fb0c5;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+
+.stat-box{
+  background:rgba(255,255,255,.04);
+  border-radius:22px;
+  padding:28px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.stat-box h3{
+  font-size:42px;
+  color:#61dafb;
+  margin-bottom:8px;
+}
+
+.pricing{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.price-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  padding:40px 32px;
+}
+
+.price-card.featured{
+  border:2px solid #61dafb;
+  transform:scale(1.03);
+}
+
+.price{
+  font-size:54px;
+  margin:18px 0;
+  font-weight:800;
+}
+
+.price small{
+  font-size:16px;
+  color:#9fb0c5;
+}
+
+.price-card ul{
+  list-style:none;
+  margin:28px 0;
+}
+
+.price-card li{
+  margin-bottom:12px;
+  color:#c7d2e3;
+}
+
+.form-section{
+  background:linear-gradient(180deg,rgba(97,218,251,.08),rgba(255,255,255,.03));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:32px;
+  padding:50px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.form-grid input,
+.form-grid textarea{
+  width:100%;
+  background:#091524;
+  border:1px solid rgba(255,255,255,.08);
+  color:#fff;
+  padding:16px;
+  border-radius:14px;
+  font-family:inherit;
+}
+
+.form-grid textarea{
+  grid-column:1/-1;
+  min-height:140px;
+}
+
+footer{
+  padding:50px 0;
+  border-top:1px solid rgba(255,255,255,.08);
+  margin-top:80px;
+}
+
+.footer-grid{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+}
+
+.footer-text{
+  color:#9fb0c5;
+}
+
+.whatsapp{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  width:64px;
+  height:64px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:30px;
+  text-decoration:none;
+  box-shadow:0 20px 40px rgba(37,211,102,.35);
+}
+
+@media(max-width:980px){
+  .hero-grid,
+  .grid-3,
+  .stats,
+  .pricing,
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:46px;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .price-card.featured{
+    transform:none;
+  }
+
+  .footer-grid{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">SpainHome <span>AI</span></div>
+
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#market">Market</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#demo">Demo</a>
+    </nav>
+
+    <a href="#demo" class="cta-btn">Request Demo</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <div class="badge">
+        🏢 AI Platform for Real Estate Agencies in Spain
+      </div>
+
+      <h1>
+        Sell to clients your competitors <span class="gradient">can't even talk to.</span>
+      </h1>
+
+      <p>
+        SpainHome AI helps Spanish real estate agencies guide international buyers in their own language with AI-powered multilingual assistance, lead generation, and property guidance.
+      </p>
+
+      <a href="#demo" class="cta-btn">Start Free Demo</a>
+
+      <div class="founder">
+        Jalil Modir Khazeni — Founder & Developer · SpainHome AI
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Agency ROI Calculator</h3>
+
+      <div class="metric">
+        <span>Average commission</span>
+        <strong>€8,500</strong>
+      </div>
+
+      <div class="metric">
+        <span>Monthly subscription</span>
+        <strong>€170</strong>
+      </div>
+
+      <div class="metric">
+        <span>New multilingual market</span>
+        <strong>×4 Bigger</strong>
+      </div>
+
+      <div class="metric">
+        <span>Potential monthly gain</span>
+        <strong>+€8,200</strong>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Built for Modern Real Estate Agencies</h2>
+      <p>
+        A premium multilingual AI platform designed to help agencies increase international conversions.
+      </p>
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card">
+        <div class="card-icon">🌍</div>
+        <h3>Multilingual AI</h3>
+        <p>
+          Persian, Spanish, English, Russian, Arabic and German support for international buyers.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Lead Generation</h3>
+        <p>
+          Automatically capture leads and buyer preferences inside your agency dashboard.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🏠</div>
+        <h3>Property Guidance</h3>
+        <p>
+          Help clients understand taxes, NIE, legal process, and purchase costs.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="market">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>The Opportunity</h2>
+      <p>
+        International buyers are a rapidly growing market in Spain.
+      </p>
+    </div>
+
+    <div class="stats">
+
+      <div class="stat-box">
+        <h3>90K+</h3>
+        <p>Iranians in Spain</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>150K+</h3>
+        <p>Russians in Spain</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>200K+</h3>
+        <p>Arabic buyers yearly</p>
+      </div>
+
+      <div class="stat-box">
+        <h3>€8.5K</h3>
+        <p>Average agency commission</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Simple Pricing</h2>
+      <p>
+        Transparent plans for agencies of all sizes.
+      </p>
+    </div>
+
+    <div class="pricing">
+
+      <div class="price-card">
+        <h3>Starter</h3>
+        <div class="price">€99 <small>/month</small></div>
+
+        <ul>
+          <li>Up to 30 active clients</li>
+          <li>3 Languages</li>
+          <li>Basic Dashboard</li>
+          <li>White-label</li>
+        </ul>
+
+        <a href="#demo" class="cta-btn">Choose Plan</a>
+      </div>
+
+      <div class="price-card featured">
+        <h3>Professional</h3>
+        <div class="price">€170 <small>/month</small></div>
+
+        <ul>
+          <li>Unlimited Clients</li>
+          <li>5 Languages</li>
+          <li>Lead Capture</li>
+          <li>Agency Dashboard</li>
+          <li>Monthly Reports</li>
+        </ul>
+
+        <a href="#demo" class="cta-btn">Most Popular</a>
+      </div>
+
+      <div class="price-card">
+        <h3>Enterprise</h3>
+        <div class="price">Custom</div>
+
+        <ul>
+          <li>Multi-branch Agencies</li>
+          <li>Dedicated API</li>
+          <li>Priority Support</li>
+          <li>Custom Integrations</li>
+        </ul>
+
+        <a href="#demo" class="cta-btn">Contact Us</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="demo">
+  <div class="container">
+
+    <div class="form-section">
+
+      <div class="section-title">
+        <h2>Request a Free Demo</h2>
+        <p>
+          See how SpainHome AI can help your agency attract multilingual buyers.
+        </p>
+      </div>
+
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+
+        <div class="form-grid">
+          <input type="text" name="agency" placeholder="Agency Name" required>
+
+          <input type="email" name="email" placeholder="Business Email" required>
+
+          <input type="text" name="whatsapp" placeholder="WhatsApp Number">
+
+          <input type="text" name="clients" placeholder="Monthly Clients">
+
+          <textarea name="message" placeholder="Tell us about your agency"></textarea>
+        </div>
+
+        <br><br>
+
+        <button type="submit" class="cta-btn">
+          Request Demo
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+
+    <div>
+      <div class="logo">SpainHome <span>AI</span></div>
+      <div class="footer-text">
+        AI-powered multilingual platform for Spanish real estate agencies.
+      </div>
+    </div>
+
+    <div class="footer-text">
+      Jalil Modir Khazeni — Founder & Developer · SpainHome AI<br>
+      Alicante, Spain
+    </div>
+
+  </div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/34600000000" target="_blank">💬</a>
+
+</body>
+</html>
+```
+
+---
+
+## How to Use
+
+1. Save the file as:
+
+```text
+index.html
+```
+
+2. Upload to:
+
+* GitHub Pages
+* Vercel
+* Netlify
+
+3. Replace Formspree ID:
+
+```html
+https://formspree.io/f/your-form-id
+```
+
+with your real Formspree form.
+
+4. Replace WhatsApp number:
+
+```text
+34600000000
+```
+
+with your real number.
+
+5. Optional next upgrades:
+
+* Multi-language tabs
+* AI chatbot
+* Property search
+* CRM integration
+* Real calculator
+* Dark/light mode
+* Analytics dashboard
+* Stripe payment integration
