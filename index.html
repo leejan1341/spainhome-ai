@@ -1,190 +1,205 @@
-<h2 class="sr-only">SpainHome AI B2B marketing for real estate agencies — Persian, English, Spanish, Russian</h2>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpainHome AI — For Real Estate Agencies</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+:root{--sun:#E8A838;--terra:#C45C3A;--sea:#2A6B8A;--dark:#1A1612;--mid:#4A3F35;--sand:#F5EFE0;--light:#FBF7F0;--border:rgba(200,180,150,0.25);--green:#2E7D52;--purple:#7C3AED;--blue:#1565C0;--red:#C62828;--radius:16px}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans)}
+body{font-family:'DM Sans',sans-serif;background:var(--light);color:var(--dark);min-height:100vh}
 
-.lang-tabs{display:flex;gap:0;padding:1.5rem 0 1.25rem;flex-wrap:nowrap;background:var(--color-background-secondary);border:1.5px solid var(--color-border-secondary);border-radius:16px;padding:5px;width:fit-content;margin-bottom:1.5rem}
-.lang-tabs button{padding:9px 18px;border-radius:12px;border:none;background:transparent;color:var(--color-text-secondary);font-size:13px;font-weight:500;cursor:pointer;font-family:var(--font-sans);transition:all .2s;white-space:nowrap;display:flex;align-items:center;gap:6px}
-.lang-tabs button.active{background:var(--color-background-primary);color:var(--color-text-primary);font-weight:700;box-shadow:0 1px 6px rgba(0,0,0,0.1)}
-.lang-tabs button:hover:not(.active){background:var(--color-background-primary);opacity:.7}
+/* ── LANG TABS ── */
+.lang-bar{background:white;border-bottom:1.5px solid var(--border);padding:0 16px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.lang-tabs{display:flex;gap:4px;padding:10px 0;overflow-x:auto;scrollbar-width:none}
+.lang-tabs::-webkit-scrollbar{display:none}
+.lang-tabs button{padding:7px 16px;border-radius:30px;border:1.5px solid var(--border);background:transparent;cursor:pointer;font-size:12.5px;font-family:'DM Sans',sans-serif;color:var(--mid);transition:all .2s;white-space:nowrap;font-weight:500}
+.lang-tabs button:hover{border-color:var(--sun);color:var(--dark)}
+.lang-tabs button.active{background:var(--dark);color:white;border-color:var(--dark)}
+.lang-demo-btn{padding:8px 18px;border-radius:30px;border:none;background:linear-gradient(135deg,var(--sun),var(--terra));color:white;font-size:12.5px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .2s;box-shadow:0 2px 10px rgba(232,168,56,.3)}
+.lang-demo-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(232,168,56,.4)}
 
-.hero{border-radius:20px;padding:2rem 1.75rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
-.hero-fa{background:linear-gradient(135deg,#1a1060 0%,#3b1fa8 50%,#6a3fcb 100%);border:2px solid #7c5fe6}
-.hero-en{background:linear-gradient(135deg,#0a3d62 0%,#1565c0 55%,#1976d2 100%);border:2px solid #42a5f5}
-.hero-es{background:linear-gradient(135deg,#7b1200 0%,#c62828 55%,#e53935 100%);border:2px solid #ef9a9a}
-.hero-ru{background:linear-gradient(135deg,#1b4332 0%,#2e7d52 55%,#388e3c 100%);border:2px solid #81c784}
-.hero-badge{display:inline-block;font-size:11.5px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:1rem;letter-spacing:.4px;background:rgba(255,255,255,.15);color:#fff}
-.hero h1{font-size:24px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:.65rem}
-.hero p{font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.65;margin-bottom:1.1rem}
-.hero-tags{display:flex;flex-wrap:wrap;gap:7px}
+/* ── SECTIONS ── */
+.lang-section{display:none;max-width:860px;margin:0 auto;padding:24px 16px 60px}
+.lang-section.active{display:block}
+.rtl{direction:rtl;text-align:right}
+
+/* ── HERO ── */
+.hero{border-radius:20px;padding:36px 28px 40px;margin-bottom:24px;position:relative;overflow:hidden}
+.hero-fa{background:linear-gradient(135deg,#1a1060,#3b1fa8,#6a3fcb);border:2px solid #7c5fe6}
+.hero-en{background:linear-gradient(135deg,#0a3d62,#1565c0,#1976d2);border:2px solid #42a5f5}
+.hero-ru{background:linear-gradient(135deg,#1b4332,#2e7d52,#388e3c);border:2px solid #81c784}
+.hero-ar{background:linear-gradient(135deg,#3d2400,#8B4513,#A0522D);border:2px solid #DEB887}
+.hero-de{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);border:2px solid #534bae}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 120%,rgba(255,255,255,.08) 0%,transparent 70%)}
+.hero-badge{display:inline-block;font-size:11.5px;font-weight:600;padding:5px 14px;border-radius:20px;margin-bottom:16px;background:rgba(255,255,255,.15);color:#fff;position:relative}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,32px);color:#fff;line-height:1.25;margin-bottom:12px;position:relative}
+.hero p{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.65;margin-bottom:18px;position:relative;max-width:580px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:7px;position:relative}
 .hero-tag{font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;background:rgba(255,255,255,.13);color:#fff;border:1px solid rgba(255,255,255,.25)}
 
-/* PAIN BOXES */
-.pain-section{margin-bottom:1.5rem}
-.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
-.pain-card{border-radius:16px;padding:1rem 1.1rem;border:1.5px solid}
-.pain-fa{background:#fff5f5;border-color:#f7c0c0}
-.pain-en{background:#fff5f5;border-color:#f7c0c0}
-.pain-es{background:#fff5f5;border-color:#f7c0c0}
-.pain-ru{background:#fff5f5;border-color:#f7c0c0}
-.pain-card .pi{font-size:20px;margin-bottom:8px}
-.pain-card h3{font-size:14px;font-weight:700;color:#b71c1c;margin-bottom:4px}
-.pain-card p{font-size:12.5px;color:var(--color-text-secondary);line-height:1.55}
-.pain-arrow{display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--color-text-tertiary);padding:0 4px}
-
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:1.5rem}
-.stat{border-radius:16px;padding:1rem;text-align:center;border:1.5px solid}
-.stat-fa{background:#f3efff;border-color:#c4b0f5;color:#3b1fa8}
-.stat-en{background:#e3f2fd;border-color:#90caf9;color:#1565c0}
-.stat-es{background:#fde8e8;border-color:#f09090;color:#c62828}
-.stat-ru{background:#e8f5e9;border-color:#a5d6a7;color:#2e7d52}
-.stat .num{font-size:24px;font-weight:700;line-height:1.1}
+/* ── LABELS & GRIDS ── */
+.slabel{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--terra);margin-bottom:12px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:22px}
+.stat{border-radius:14px;padding:14px;text-align:center;border:1.5px solid}
+.stat-fa,.stat-ar{background:#f3efff;border-color:#c4b0f5;color:var(--purple)}
+.stat-en{background:#e3f2fd;border-color:#90caf9;color:var(--blue)}
+.stat-ru{background:#e8f5e9;border-color:#a5d6a7;color:var(--green)}
+.stat-de{background:#e8eaf6;border-color:#9fa8da;color:#1a237e}
+.stat .num{font-size:24px;font-weight:700;line-height:1.1;font-family:'Playfair Display',serif}
 .stat .lbl{font-size:11.5px;font-weight:500;margin-top:4px;opacity:.8}
 
-.slabel{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--color-text-tertiary);margin-bottom:.75rem;padding-left:2px}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:22px}
+.pain-card{background:#fff5f5;border:1.5px solid #f7c0c0;border-radius:14px;padding:14px 16px}
+.pain-card .pi{font-size:22px;margin-bottom:8px}
+.pain-card h3{font-size:13.5px;font-weight:700;color:#b71c1c;margin-bottom:4px}
+.pain-card p{font-size:12.5px;color:var(--mid);line-height:1.55}
 
-/* ROI BOX */
-.roi-box{border-radius:16px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;border:2px solid}
-.roi-fa{background:#f3efff;border-color:#b39ddb}
-.roi-en{background:#e3f2fd;border-color:#90caf9}
-.roi-es{background:#fde8e8;border-color:#f09090}
-.roi-ru{background:#e8f5e9;border-color:#a5d6a7}
-.roi-box h3{font-size:16px;font-weight:700;margin-bottom:1rem;color:var(--color-text-primary)}
-.roi-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--color-border-tertiary);font-size:13.5px}
-.roi-row:last-child{border-bottom:none;padding-top:12px;font-weight:700;font-size:15px}
-.roi-row .val-fa{color:#7c3aed;font-weight:700}
-.roi-row .val-en{color:#1565c0;font-weight:700}
-.roi-row .val-es{color:#c62828;font-weight:700}
-.roi-row .val-ru{color:#2e7d52;font-weight:700}
-.roi-row .lbl{color:var(--color-text-secondary)}
-
-/* WHY LIST */
-.why{display:flex;flex-direction:column;gap:9px;margin-bottom:1.5rem}
-.why-item{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:14px;border:1.5px solid}
-.why-fa .why-item{background:#f9f5ff;border-color:#d4beff}
-.why-en .why-item{background:#f0f7ff;border-color:#bad6f7}
-.why-es .why-item{background:#fff5f5;border-color:#f7c0c0}
-.why-ru .why-item{background:#f1faf2;border-color:#b2dfb4}
-.why-item .bullet{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:6px}
-.why-fa .bullet{background:#7c3aed}
-.why-en .bullet{background:#1565c0}
-.why-es .bullet{background:#c62828}
-.why-ru .bullet{background:#2e7d52}
-.why-item p{font-size:14px;line-height:1.6;color:var(--color-text-secondary)}
-.why-item p strong{color:var(--color-text-primary);font-weight:600}
-
-/* FEATURES */
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;margin-bottom:1.5rem}
-.feat{border-radius:16px;padding:1rem 1.1rem;border:1.5px solid;transition:transform .15s}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;margin-bottom:22px}
+.feat{border-radius:14px;padding:14px 16px;border:1.5px solid;transition:transform .15s;cursor:default}
 .feat:hover{transform:translateY(-2px)}
-.feat-fa{background:#f9f5ff;border-color:#c4b0f5}
+.feat-fa,.feat-ar{background:#f9f5ff;border-color:#c4b0f5}
 .feat-en{background:#f0f7ff;border-color:#bad6f7}
-.feat-es{background:#fff5f5;border-color:#f7c0c0}
 .feat-ru{background:#f1faf2;border-color:#b2dfb4}
+.feat-de{background:#e8eaf6;border-color:#c5cae9}
 .feat .fi{font-size:22px;margin-bottom:8px}
-.feat h3{font-size:14px;font-weight:700;color:var(--color-text-primary);margin-bottom:4px}
-.feat p{font-size:12.5px;color:var(--color-text-secondary);line-height:1.5}
+.feat h3{font-size:13.5px;font-weight:700;color:var(--dark);margin-bottom:4px}
+.feat p{font-size:12px;color:var(--mid);line-height:1.5}
 
-/* USE CASE */
-.usecase{border-radius:16px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;border:1.5px solid var(--color-border-secondary);background:var(--color-background-secondary)}
-.usecase-header{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
-.usecase-header .uc-icon{font-size:28px}
-.usecase-header h3{font-size:15px;font-weight:700;color:var(--color-text-primary)}
-.usecase-header p{font-size:12px;color:var(--color-text-secondary)}
+.roi-box{border-radius:14px;padding:18px 22px;margin-bottom:22px;border:2px solid}
+.roi-fa,.roi-ar{background:#f3efff;border-color:#b39ddb}
+.roi-en{background:#e3f2fd;border-color:#90caf9}
+.roi-ru{background:#e8f5e9;border-color:#a5d6a7}
+.roi-de{background:#e8eaf6;border-color:#9fa8da}
+.roi-box h3{font-size:16px;font-weight:700;margin-bottom:14px;color:var(--dark)}
+.roi-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(0,0,0,.07);font-size:13.5px}
+.roi-row:last-child{border-bottom:none;font-weight:700;font-size:15px;padding-top:12px}
+.roi-row .lbl{color:var(--mid)}
+.val-fa,.val-ar{color:var(--purple);font-weight:700}
+.val-en{color:var(--blue);font-weight:700}
+.val-ru{color:var(--green);font-weight:700}
+.val-de{color:#1a237e;font-weight:700}
+
+.usecase{border-radius:14px;padding:18px 22px;margin-bottom:22px;border:1.5px solid var(--border);background:white}
+.usecase-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.uc-icon{font-size:28px}
+.usecase-header h3{font-size:14.5px;font-weight:700;color:var(--dark)}
+.usecase-header p{font-size:12px;color:var(--mid)}
 .uc-steps{display:flex;flex-direction:column;gap:8px}
 .uc-step{display:flex;gap:10px;align-items:flex-start}
-.uc-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;color:#fff}
-.uc-num-fa{background:#7c3aed}
-.uc-num-en{background:#1565c0}
-.uc-num-es{background:#c62828}
-.uc-num-ru{background:#2e7d52}
-.uc-step p{font-size:13px;color:var(--color-text-secondary);line-height:1.55;padding-top:3px}
-.uc-step p strong{color:var(--color-text-primary);font-weight:600}
-
-/* PRICING */
-.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;margin-bottom:1.5rem}
-.price-card{border-radius:16px;padding:1.25rem;border:1.5px solid;text-align:center}
-.price-card.featured-fa{border:2px solid #7c3aed;background:#f9f5ff}
-.price-card.featured-en{border:2px solid #1565c0;background:#f0f7ff}
-.price-card.featured-es{border:2px solid #c62828;background:#fff5f5}
-.price-card.featured-ru{border:2px solid #2e7d52;background:#f1faf2}
-.price-card.plain{background:var(--color-background-secondary);border-color:var(--color-border-secondary)}
-.price-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;margin-bottom:.75rem}
-.badge-fa{background:#7c3aed;color:#fff}
-.badge-en{background:#1565c0;color:#fff}
-.badge-es{background:#c62828;color:#fff}
-.badge-ru{background:#2e7d52;color:#fff}
-.price-card h3{font-size:14px;font-weight:700;margin-bottom:.4rem;color:var(--color-text-primary)}
-.price-card .price-num{font-size:26px;font-weight:700;line-height:1.1;margin-bottom:.25rem}
-.price-card .price-per{font-size:11px;color:var(--color-text-tertiary);margin-bottom:.85rem}
-.price-card ul{list-style:none;text-align:right;font-size:12px;color:var(--color-text-secondary);display:flex;flex-direction:column;gap:5px}
-.price-card ul li::before{content:"✓ ";font-weight:700}
-.price-fa ul li::before{color:#7c3aed}
-.price-en ul li::before{color:#1565c0}
-.price-es ul li::before{color:#c62828}
-.price-ru ul li::before{color:#2e7d52}
-
-/* TABLE */
-.tbl-wrap{border-radius:16px;overflow:hidden;border:1.5px solid var(--color-border-secondary);margin-bottom:1.5rem}
-.comp-table{width:100%;border-collapse:collapse;font-size:13px}
-.comp-table thead tr{background:var(--color-background-secondary)}
-.comp-table th{padding:10px 12px;font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--color-text-secondary);border-bottom:1.5px solid var(--color-border-secondary);text-align:left}
-.comp-table td{padding:10px 12px;border-bottom:1px solid var(--color-border-tertiary);color:var(--color-text-secondary);vertical-align:middle}
-.comp-table tr:last-child td{border-bottom:none}
-.fa-us{color:#7c3aed;font-weight:700}
-.en-us{color:#1565c0;font-weight:700}
-.es-us{color:#c62828;font-weight:700}
-.ru-us{color:#2e7d52;font-weight:700}
-.bad{color:#b71c1c;font-weight:500}
-.mine{font-weight:700;color:var(--color-text-primary)}
-
-/* MOAT */
-.moat-box{border-radius:16px;padding:1.25rem;margin-bottom:1.5rem;border:1.5px solid var(--color-border-secondary);background:var(--color-background-secondary)}
-.moat-box h3{font-size:15px;font-weight:700;margin-bottom:.85rem;color:var(--color-text-primary)}
-.moat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.moat-item{padding:10px 12px;border-radius:12px;border:1.5px solid}
-.moat-us{border-color:#c8f5d5;background:#f1faf2}
-.moat-them{border-color:#f7c0c0;background:#fff5f5}
-.moat-item .mt{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-.moat-us .mt{color:#2e7d52}
-.moat-them .mt{color:#b71c1c}
-.moat-item p{font-size:12.5px;color:var(--color-text-secondary);line-height:1.5}
-
-/* CTA */
-.cta{border-radius:20px;padding:1.75rem;text-align:center;border:2px solid;margin-bottom:.5rem}
-.cta-fa{background:linear-gradient(135deg,#f3efff,#e9e0ff);border-color:#b39ddb}
-.cta-en{background:linear-gradient(135deg,#e3f2fd,#d0e8fb);border-color:#90caf9}
-.cta-es{background:linear-gradient(135deg,#fde8e8,#fdd5d5);border-color:#f09090}
-.cta-ru{background:linear-gradient(135deg,#e8f5e9,#d4efd5);border-color:#a5d6a7}
-.cta h2{font-size:20px;font-weight:700;margin-bottom:.5rem;color:var(--color-text-primary)}
-.cta p{font-size:14px;color:var(--color-text-secondary);margin-bottom:1.1rem;line-height:1.65}
-.cta-btn{display:inline-block;padding:12px 32px;border-radius:30px;font-size:14px;font-weight:700;cursor:pointer;border:none;font-family:var(--font-sans);letter-spacing:.2px}
-.cta-btn-fa{background:#7c3aed;color:#fff}
-.cta-btn-en{background:#1565c0;color:#fff}
-.cta-btn-es{background:#c62828;color:#fff}
-.cta-btn-ru{background:#2e7d52;color:#fff}
-
-.rtl{direction:rtl;text-align:right}
-.rtl .comp-table th,.rtl .comp-table td{text-align:right}
-.rtl .why-item{flex-direction:row-reverse}
-.rtl .hero-tags{justify-content:flex-end}
 .rtl .uc-step{flex-direction:row-reverse}
-.rtl .price-card ul{text-align:right}
-.rtl .moat-grid{direction:rtl}
-</style>
+.uc-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;color:#fff}
+.uc-fa,.uc-ar{background:var(--purple)}
+.uc-en{background:var(--blue)}
+.uc-ru{background:var(--green)}
+.uc-de{background:#1a237e}
+.uc-step p{font-size:13px;color:var(--mid);line-height:1.55;padding-top:3px}
+.uc-step p strong{color:var(--dark);font-weight:600}
 
-<div class="lang-tabs">
-  <button class="active" onclick="show('fa',this)">🇮🇷 فارسی</button>
-  <button onclick="show('en',this)">🇬🇧 English</button>
-  <button onclick="show('es',this)">🇪🇸 Español</button>
-  <button onclick="show('ru',this)">🇷🇺 Русский</button>
-  <button onclick="show('de',this)">🇩🇪 Deutsch</button>
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:22px}
+.price-card{background:white;border:1.5px solid var(--border);border-radius:var(--radius);padding:18px;position:relative}
+.price-card.featured{border-width:2px}
+.featured-fa,.featured-ar{border-color:var(--purple)!important;background:#f9f5ff}
+.featured-en{border-color:var(--blue)!important;background:#f0f7ff}
+.featured-ru{border-color:var(--green)!important;background:#f1faf2}
+.featured-de{border-color:#1a237e!important;background:#e8eaf6}
+.price-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;margin-bottom:10px}
+.badge-fa,.badge-ar{background:var(--purple);color:#fff}
+.badge-en{background:var(--blue);color:#fff}
+.badge-ru{background:var(--green);color:#fff}
+.badge-de{background:#1a237e;color:#fff}
+.price-card h3{font-size:14px;font-weight:700;margin-bottom:6px;color:var(--dark)}
+.price-num{font-size:28px;font-weight:700;line-height:1.1;font-family:'Playfair Display',serif;color:var(--dark)}
+.price-per{font-size:11.5px;color:var(--mid);margin-bottom:14px}
+.price-card ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.price-card ul li{font-size:12.5px;color:var(--mid);display:flex;align-items:flex-start;gap:7px;line-height:1.4}
+.price-card ul li::before{content:'✓';font-weight:700;flex-shrink:0}
+.li-fa li::before,.li-ar li::before{color:var(--purple)}
+.li-en li::before{color:var(--blue)}
+.li-ru li::before{color:var(--green)}
+.li-de li::before{color:#1a237e}
+.price-btn{width:100%;padding:10px;border-radius:9px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.price-btn.primary-fa,.price-btn.primary-ar{background:var(--purple);color:white}
+.price-btn.primary-en{background:var(--blue);color:white}
+.price-btn.primary-ru{background:var(--green);color:white}
+.price-btn.primary-de{background:#1a237e;color:white}
+.price-btn.secondary{background:var(--sand);color:var(--dark);border:1.5px solid var(--border)}
+.price-btn:hover{opacity:.88;transform:translateY(-1px)}
+
+.cta{border-radius:20px;padding:28px;text-align:center;border:2px solid;margin-bottom:0}
+.cta-fa,.cta-ar{background:linear-gradient(135deg,#f3efff,#e9e0ff);border-color:#b39ddb}
+.cta-en{background:linear-gradient(135deg,#e3f2fd,#d0e8fb);border-color:#90caf9}
+.cta-ru{background:linear-gradient(135deg,#e8f5e9,#d4efd5);border-color:#a5d6a7}
+.cta-de{background:linear-gradient(135deg,#e8eaf6,#d1d5f0);border-color:#9fa8da}
+.cta h2{font-size:20px;font-weight:700;margin-bottom:8px;color:var(--dark);font-family:'Playfair Display',serif}
+.cta p{font-size:14px;color:var(--mid);margin-bottom:18px;line-height:1.65}
+.cta-btn{display:inline-block;padding:13px 32px;border-radius:30px;font-size:14px;font-weight:700;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:all .2s}
+.cta-btn:hover{transform:translateY(-2px);opacity:.9}
+.cta-btn-fa,.cta-btn-ar{background:var(--purple);color:#fff}
+.cta-btn-en{background:var(--blue);color:#fff}
+.cta-btn-ru{background:var(--green);color:#fff}
+.cta-btn-de{background:#1a237e;color:#fff}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(26,22,18,.78);backdrop-filter:blur(6px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:white;border-radius:20px;width:100%;max-width:480px;max-height:92vh;overflow-y:auto;transform:translateY(24px) scale(.97);transition:transform .3s cubic-bezier(.34,1.56,.64,1);box-shadow:0 24px 80px rgba(0,0,0,.3)}
+.modal-overlay.open .modal{transform:translateY(0) scale(1)}
+.modal-header{background:linear-gradient(135deg,var(--dark),#2C1F17);padding:20px 22px 18px;border-radius:20px 20px 0 0;position:relative}
+.modal-header h2{font-family:'Playfair Display',serif;font-size:18px;color:white;margin-bottom:3px}
+.modal-header p{font-size:12px;color:rgba(255,255,255,.6)}
+.modal-close{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;border:none;background:rgba(255,255,255,.12);color:white;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.modal-close:hover{background:rgba(255,255,255,.25)}
+.modal-body{padding:20px 22px 24px}
+.form-group{margin-bottom:13px}
+.form-group label{display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--terra);margin-bottom:5px}
+.form-group input,.form-group select{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:9px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--dark);background:var(--sand);outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus{border-color:var(--sun);background:white}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.submit-btn{width:100%;padding:13px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--sun),var(--terra));color:white;font-family:'DM Sans',sans-serif;font-size:14.5px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:6px;box-shadow:0 4px 16px rgba(232,168,56,.3)}
+.submit-btn:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(232,168,56,.4)}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.form-note{font-size:11.5px;color:var(--mid);text-align:center;margin-top:10px;opacity:.7}
+.success-state{text-align:center;padding:30px 22px 36px}
+.success-icon{font-size:52px;margin-bottom:12px;animation:popIn .4s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{from{transform:scale(0)}to{transform:scale(1)}}
+.success-state h3{font-family:'Playfair Display',serif;font-size:20px;margin-bottom:8px}
+.success-state p{font-size:13.5px;color:var(--mid);line-height:1.6;margin-bottom:18px}
+.success-detail{background:var(--sand);border-radius:10px;padding:13px 16px;font-size:13px;color:var(--mid);text-align:left;margin-bottom:18px;line-height:1.7}
+.open-demo-btn{display:inline-flex;align-items:center;gap:8px;background:var(--dark);color:white;padding:11px 26px;border-radius:10px;border:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s}
+.open-demo-btn:hover{background:var(--terra)}
+
+.lead-log{position:fixed;bottom:20px;right:20px;z-index:500;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.lead-toast{background:white;border:1.5px solid var(--border);border-radius:12px;padding:10px 14px;font-size:12.5px;color:var(--dark);box-shadow:0 4px 20px rgba(0,0,0,.12);display:flex;align-items:center;gap:9px;animation:slideIn .3s ease,fadeOut .3s ease 3.7s forwards;max-width:260px}
+@keyframes slideIn{from{transform:translateX(100px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes fadeOut{to{opacity:0;transform:translateX(20px)}}
+.lead-toast .dot{width:8px;height:8px;background:var(--green);border-radius:50%;flex-shrink:0}
+
+@media(max-width:600px){
+  .form-row{grid-template-columns:1fr}
+  .lang-bar{flex-wrap:wrap;gap:6px;padding:8px 12px}
+  .lang-demo-btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ── STICKY LANG BAR ── -->
+<div class="lang-bar">
+  <div class="lang-tabs">
+    <button class="active" onclick="show('fa',this)">🇮🇷 فارسی</button>
+    <button onclick="show('en',this)">🇬🇧 English</button>
+    <button onclick="show('ru',this)">🇷🇺 Русский</button>
+    <button onclick="show('ar',this)">🇸🇦 العربية</button>
+    <button onclick="show('de',this)">🇩🇪 Deutsch</button>
+  </div>
+  <button class="lang-demo-btn" onclick="openModal()">✨ درخواست دمو رایگان</button>
 </div>
 
 <!-- ══════════ PERSIAN ══════════ -->
-<div id="fa" class="rtl">
-
+<div id="fa" class="lang-section active rtl">
   <div class="hero hero-fa">
     <div class="hero-badge">🏢 ابزار حرفه‌ای برای آژانس‌های املاک — اسپانیا</div>
     <h1>به مشتریانی بفروشید که<br>رقبایتان نمی‌توانند با آن‌ها حرف بزنند.</h1>
@@ -196,15 +211,13 @@ body{font-family:var(--font-sans)}
       <span class="hero-tag">✦ Lead generation خودکار</span>
     </div>
   </div>
-
   <div class="slabel">مشکل واقعی آژانس‌های اسپانیایی</div>
-  <div class="pain-grid pain-section">
-    <div class="pain-card pain-fa"><div class="pi">😤</div><h3>موانع زبانی</h3><p>مشتری خارجی می‌آید، agent نمی‌تواند توضیح دهد — مشتری می‌رود پیش رقیب.</p></div>
-    <div class="pain-card pain-fa"><div class="pi">⏳</div><h3>اتلاف وقت</h3><p>ساعت‌ها صرف آموزش اولیه هر مشتری خارجی درباره NIE، مالیات و فرایند حقوقی.</p></div>
-    <div class="pain-card pain-fa"><div class="pi">📉</div><h3>از دست دادن فروش</h3><p>مشتری نامطمئن از فرایند پیچیده، تصمیم نمی‌گیرد و معامله منجر به نتیجه نمی‌شود.</p></div>
-    <div class="pain-card pain-fa"><div class="pi">💸</div><h3>هزینه بالای مشاور</h3><p>استخدام کارمند چندزبانه یا مشاور حقوقی برای هر مشتری، هزینه‌بر و غیرعملی است.</p></div>
+  <div class="pain-grid">
+    <div class="pain-card"><div class="pi">😤</div><h3>موانع زبانی</h3><p>مشتری خارجی می‌آید، agent نمی‌تواند توضیح دهد — مشتری می‌رود پیش رقیب.</p></div>
+    <div class="pain-card"><div class="pi">⏳</div><h3>اتلاف وقت</h3><p>ساعت‌ها صرف آموزش اولیه هر مشتری خارجی درباره NIE، مالیات و فرایند حقوقی.</p></div>
+    <div class="pain-card"><div class="pi">📉</div><h3>از دست دادن فروش</h3><p>مشتری نامطمئن از فرایند پیچیده، تصمیم نمی‌گیرد و معامله منجر به نتیجه نمی‌شود.</p></div>
+    <div class="pain-card"><div class="pi">💸</div><h3>هزینه بالای مشاور</h3><p>استخدام کارمند چندزبانه یا مشاور حقوقی برای هر مشتری، هزینه‌بر و غیرعملی است.</p></div>
   </div>
-
   <div class="slabel">بازار هدف — چرا الان؟</div>
   <div class="stats">
     <div class="stat stat-fa"><div class="num">+90k</div><div class="lbl">ایرانی در اسپانیا</div></div>
@@ -212,928 +225,427 @@ body{font-family:var(--font-sans)}
     <div class="stat stat-fa"><div class="num">+200k</div><div class="lbl">خریدار عرب‌زبان سالانه</div></div>
     <div class="stat stat-fa"><div class="num">€8,500</div><div class="lbl">میانگین کمیسیون هر فروش</div></div>
   </div>
-
   <div class="slabel">محاسبه بازگشت سرمایه برای آژانس</div>
   <div class="roi-box roi-fa">
     <h3>💰 اگر سیستم فقط یک فروش اضافه در ماه بیاورد:</h3>
     <div class="roi-row"><span class="lbl">میانگین کمیسیون یک فروش ملک</span><span class="val-fa">€8,500</span></div>
     <div class="roi-row"><span class="lbl">هزینه اشتراک ماهانه سیستم</span><span class="val-fa">€149–€299</span></div>
-    <div class="roi-row"><span class="lbl">مشتریان جدید قابل دسترس (بازار چندزبانه)</span><span class="val-fa">×۴ برابر</span></div>
-    <div class="roi-row"><span class="lbl">⚡ سود خالص ماهانه برای آژانس</span><span class="val-fa">+€8,200+</span></div>
+    <div class="roi-row"><span class="lbl">مشتریان جدید قابل دسترس</span><span class="val-fa">×۴ برابر</span></div>
+    <div class="roi-row"><span class="lbl">⚡ سود خالص ماهانه برای آژانس</span><span class="val-fa">+€8,200</span></div>
   </div>
-
-  <div class="slabel">سناریوی واقعی — داستان موفقیت</div>
-  <div class="usecase">
-    <div class="usecase-header">
-      <div class="uc-icon">🏘️</div>
-      <div><h3>آژانس Inmobiliaria Costa Blanca — آلیکانته</h3><p>سناریوی نمونه با مشتری ایرانی</p></div>
-    </div>
-    <div class="uc-steps">
-      <div class="uc-step" style="flex-direction:row-reverse"><div class="uc-num uc-num-fa">۱</div><p>یک مشتری با بودجه €280,000 با آژانس تماس می‌گیرد. agent اسپانیایی نمی‌داند چطور NIE، مالیات ITP و فرایند را توضیح دهد.</p></div>
-      <div class="uc-step" style="flex-direction:row-reverse"><div class="uc-num uc-num-fa">۲</div><p><strong>آژانس لینک SpainHome AI را با برند خودش</strong> برای مشتری ارسال می‌کند. مشتری راهنمای کامل فارسی، ماشین‌حساب هزینه و چت AI دریافت می‌کند.</p></div>
-      <div class="uc-step" style="flex-direction:row-reverse"><div class="uc-num uc-num-fa">۳</div><p>مشتری با اطمینان کامل به آژانس برمی‌گردد. <strong>پنل آژانس نشان می‌دهد</strong> مشتری منطقه آلیکانته، بودجه €280k، و هدف سرمایه‌گذاری را انتخاب کرده.</p></div>
-      <div class="uc-step" style="flex-direction:row-reverse"><div class="uc-num uc-num-fa">۴</div><p>آژانس دقیقاً می‌داند چه ملکی نشان دهد. <strong>نرخ تبدیل از بازدید به فروش ۳ برابر بالاتر</strong> می‌رود.</p></div>
-    </div>
-  </div>
-
   <div class="slabel">قابلیت‌های سیستم برای آژانس</div>
   <div class="features">
     <div class="feat feat-fa"><div class="fi">🎨</div><h3>White-label کامل</h3><p>لوگو، رنگ و دامنه آژانس شما — مشتری فکر می‌کند ابزار خود آژانس است</p></div>
     <div class="feat feat-fa"><div class="fi">📊</div><h3>پنل مدیریت</h3><p>ببینید هر مشتری کجای فرایند است، چه بودجه‌ای دارد و کدام منطقه را می‌خواهد</p></div>
     <div class="feat feat-fa"><div class="fi">🎯</div><h3>Lead generation</h3><p>داده تماس و پروفایل کامل هر مشتری به‌صورت خودکار در پنل آژانس ذخیره می‌شود</p></div>
-    <div class="feat feat-fa"><div class="fi">🏠</div><h3>معرفی ملک‌های آژانس</h3><p>ملک‌های خودتان را داخل سیستم اضافه کنید — سیستم آن‌ها را به مشتری مرتبط نشان می‌دهد</p></div>
     <div class="feat feat-fa"><div class="fi">💬</div><h3>چت AI چندزبانه</h3><p>مشتری به فارسی، روسی، عربی سوال می‌پرسد — AI با برند آژانس شما جواب می‌دهد</p></div>
     <div class="feat feat-fa"><div class="fi">🧮</div><h3>ماشین‌حساب هزینه</h3><p>مشتری هزینه واقعی خرید را می‌بیند — بدون سوال‌های تکراری از agent شما</p></div>
     <div class="feat feat-fa"><div class="fi">🛂</div><h3>راهنمای ویزا ۲۰۲۵</h3><p>پس از لغو Golden Visa، مشتریان جایگزین‌های اقامت را از سیستم شما یاد می‌گیرند</p></div>
-    <div class="feat feat-fa"><div class="fi">📈</div><h3>گزارش ماهانه</h3><p>تعداد مشتریان، زبان‌ها، بودجه‌ها و منطقه‌های موردعلاقه — برای بهینه‌سازی بازاریابی</p></div>
   </div>
-
-  <div class="slabel">ماشین‌حساب ما — تفاوت اصلی با رقبا</div>
-  <div style="border-radius:16px;overflow:hidden;border:2px solid #7c3aed;margin-bottom:1.5rem">
-    <div style="background:#7c3aed;padding:12px 16px;display:flex;align-items:center;gap:10px">
-      <span style="font-size:22px">🧮</span>
-      <div>
-        <div style="font-size:15px;font-weight:800;color:#fff">ماشین‌حساب هزینه — چیزی که رقبا ندارند</div>
-        <div style="font-size:11.5px;color:rgba(255,255,255,.7);margin-top:2px">Idealista، Fotocasa، Bankinter — همه ناقص هستند</div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0">
-      <div style="padding:14px 16px;background:#fff5f5;border-left:none;border-right:1px solid #f7c0c0;border-bottom:none">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:#b71c1c;margin-bottom:10px">✗ سایت‌های اسپانیایی (Idealista، Fotocasa، Bankinter)</div>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:flex-start;gap:7px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px">✗</span>فقط به اسپانیایی</div>
-          <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:flex-start;gap:7px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px">✗</span>فقط یک منطقه</div>
-          <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:flex-start;gap:7px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px">✗</span>هزینه‌های جانبی نشان نمی‌دهند</div>
-          <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:flex-start;gap:7px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px">✗</span>برای خریدار خارجی طراحی نشده</div>
-          <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:flex-start;gap:7px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px">✗</span>وام + مالیات + هزینه یکجا نیست</div>
-        </div>
-      </div>
-      <div style="padding:14px 16px;background:#f9f5ff">
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:#7c3aed;margin-bottom:10px">✓ ماشین‌حساب SpainHome AI</div>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <div style="font-size:12.5px;color:#6d28d9;font-weight:600;display:flex;align-items:flex-start;gap:7px;flex-direction:row-reverse"><span style="background:#7c3aed;color:#fff;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;margin-top:1px">✓</span>۶ زبان — فارسی، عربی، روسی، آلمانی، اسپانیایی، انگلیسی</div>
-          <div style="font-size:12.5px;color:#6d28d9;font-weight:600;display:flex;align-items:flex-start;gap:7px;flex-direction:row-reverse"><span style="background:#7c3aed;color:#fff;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;margin-top:1px">✓</span>همه مناطق با درصدهای متفاوت</div>
-          <div style="font-size:12.5px;color:#6d28d9;font-weight:600;display:flex;align-items:flex-start;gap:7px;flex-direction:row-reverse"><span style="background:#7c3aed;color:#fff;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;margin-top:1px">✓</span>ITP vs IVA — ملک کارکرده vs نو</div>
-          <div style="font-size:12.5px;color:#6d28d9;font-weight:600;display:flex;align-items:flex-start;gap:7px;flex-direction:row-reverse"><span style="background:#7c3aed;color:#fff;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;margin-top:1px">✓</span>وکیل + نوتر + ثبت — همه یکجا</div>
-          <div style="font-size:12.5px;color:#6d28d9;font-weight:600;display:flex;align-items:flex-start;gap:7px;flex-direction:row-reverse"><span style="background:#7c3aed;color:#fff;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;margin-top:1px">✓</span>وام + مالیات سالانه در کنار هم</div>
-          <div style="font-size:12.5px;color:#6d28d9;font-weight:600;display:flex;align-items:flex-start;gap:7px;flex-direction:row-reverse"><span style="background:#7c3aed;color:#fff;border-radius:50%;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;margin-top:1px">✓</span>مقیم/غیرمقیم روی مالیات تأثیر می‌گذارد</div>
-        </div>
-      </div>
+  <div class="slabel">سناریوی واقعی</div>
+  <div class="usecase">
+    <div class="usecase-header"><div class="uc-icon">🏘️</div><div><h3>آژانس Costa Blanca — آلیکانته</h3><p>سناریوی نمونه با مشتری ایرانی</p></div></div>
+    <div class="uc-steps">
+      <div class="uc-step"><div class="uc-num uc-fa">۱</div><p>مشتری ایرانی با بودجه €280,000 تماس می‌گیرد. agent نمی‌داند چطور NIE و مالیات ITP را توضیح دهد.</p></div>
+      <div class="uc-step"><div class="uc-num uc-fa">۲</div><p><strong>آژانس لینک SpainHome AI</strong> با برند خودش برای مشتری ارسال می‌کند. مشتری راهنمای کامل فارسی دریافت می‌کند.</p></div>
+      <div class="uc-step"><div class="uc-num uc-fa">۳</div><p>مشتری با اطمینان کامل برمی‌گردد. <strong>پنل آژانس</strong> نشان می‌دهد مشتری منطقه آلیکانته و هدف سرمایه‌گذاری را انتخاب کرده.</p></div>
+      <div class="uc-step"><div class="uc-num uc-fa">۴</div><p>آژانس دقیقاً می‌داند چه ملکی نشان دهد — چون مشتری قبلاً بودجه، منطقه و هدفش را مشخص کرده. <strong>مکالمه اول با آژانس از صفر شروع نمی‌شود — از جایی شروع می‌شود که مشتری آماده تصمیم است.</strong></p></div>
     </div>
   </div>
-
-  <div class="slabel">چرا Google Translate یا ChatGPT کافی نیست؟</div>
-  <div class="moat-box">
-    <h3>مزیت رقابتی SpainHome AI</h3>
-    <div class="moat-grid">
-      <div class="moat-item moat-us"><div class="mt">✓ SpainHome AI</div><p>اطلاعات حقوقی تخصصی اسپانیا، به‌روز ۲۰۲۵، با پنل آژانس و lead capture یکپارچه</p></div>
-      <div class="moat-item moat-them"><div class="mt">✗ ChatGPT عمومی</div><p>اطلاعات عمومی، منسوخ، بدون برند آژانس، بدون capture داده مشتری</p></div>
-      <div class="moat-item moat-us"><div class="mt">✓ SpainHome AI</div><p>مشتری در اکوسیستم آژانس شما می‌ماند — داده به شما تعلق دارد</p></div>
-      <div class="moat-item moat-them"><div class="mt">✗ Google Translate</div><p>ترجمه متن، نه راهنمایی — مشتری سردرگم‌تر می‌شود نه مطمئن‌تر</p></div>
-    </div>
-  </div>
-
   <div class="slabel">پلن‌های قیمت‌گذاری</div>
-  <div style="background:#fff8e1;border:1.5px solid #ffe082;border-radius:14px;padding:12px 16px;margin-bottom:12px;font-size:13px;color:#6d4c00">
-    ⚡ <strong>راه‌اندازی یکبار:</strong> هزینه ست‌آپ اولیه <strong>€600</strong> — شامل نصب، تنظیم White-label، آموزش اولیه و اتصال به سیستم آژانس شما.
-  </div>
   <div class="pricing">
-    <div class="price-card plain price-fa">
-      <h3>Starter</h3>
-      <div class="price-num" style="color:#7c3aed">€99</div>
-      <div class="price-per">در ماه</div>
-      <ul>
-        <li>تا ۳۰ مشتری فعال</li>
-        <li>۳ زبان</li>
-        <li>پنل پایه</li>
-        <li>White-label</li>
-      </ul>
-    </div>
-    <div class="price-card featured-fa price-fa">
-      <div class="price-badge badge-fa">پیشنهاد ما</div>
-      <h3>Professional</h3>
-      <div class="price-num" style="color:#7c3aed">€170</div>
-      <div class="price-per">در ماه</div>
-      <ul>
-        <li>مشتری نامحدود</li>
-        <li>۵ زبان کامل</li>
-        <li>Lead capture کامل</li>
-        <li>معرفی ملک آژانس</li>
-        <li>پنل مدیریت کامل</li>
-        <li>گزارش ماهانه</li>
-      </ul>
-    </div>
-    <div class="price-card plain price-fa">
-      <h3>Enterprise</h3>
-      <div class="price-num" style="color:#7c3aed">سفارشی</div>
-      <div class="price-per">چند شعبه</div>
-      <ul>
-        <li>چند آژانس / شعبه</li>
-        <li>API اختصاصی</li>
-        <li>پشتیبانی اولویت‌دار</li>
-        <li>آموزش تیم</li>
-      </ul>
-    </div>
+    <div class="price-card li-fa"><h3>استارتر</h3><div class="price-num">€199</div><div class="price-per">راه‌اندازی + €149/ماه</div><ul><li>تا ۵۰ مکالمه در ماه</li><li>۵ زبان</li><li>راهنمای کامل خرید</li><li>ماشین‌حساب هزینه</li></ul><button class="price-btn secondary" onclick="openModal('استارتر')">شروع کنید</button></div>
+    <div class="price-card featured featured-fa li-fa"><div class="price-badge badge-fa">پرطرفدار</div><h3>حرفه‌ای</h3><div class="price-num">€299</div><div class="price-per">راه‌اندازی + €199/ماه</div><ul><li>مکالمات نامحدود</li><li>۵ زبان</li><li>ژنراتور مدارک</li><li>Lead capture</li><li>برند آژانس شما</li></ul><button class="price-btn primary-fa" onclick="openModal('حرفه‌ای')">درخواست دمو ←</button></div>
+    <div class="price-card li-fa"><h3>آژانس+</h3><div class="price-num">€499</div><div class="price-per">راه‌اندازی + €349/ماه</div><ul><li>دسترسی چند agent</li><li>یکپارچه‌سازی CRM</li><li>گزارش‌های ماهانه</li><li>پشتیبانی اولویت‌دار</li></ul><button class="price-btn secondary" onclick="openModal('آژانس+')">تماس بگیرید</button></div>
   </div>
-
-  <div class="slabel">مقایسه با رقبا در بازار B2B</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:1.5rem">
-    <div style="border-radius:16px;overflow:hidden;border:2px solid #7c3aed">
-      <div style="background:#7c3aed;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">انتخاب شما</div>
-        <div style="font-size:15px;font-weight:800;color:#fff">SpainHome AI</div>
-      </div>
-      <div style="background:#f9f5ff;padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#6d28d9;font-weight:700;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#7c3aed;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>White-label کامل</div>
-        <div style="font-size:12.5px;color:#6d28d9;font-weight:700;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#7c3aed;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>راهنمای حقوقی ۵ زبان</div>
-        <div style="font-size:12.5px;color:#6d28d9;font-weight:700;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#7c3aed;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>Lead capture خودکار</div>
-        <div style="font-size:12.5px;color:#6d28d9;font-weight:700;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#7c3aed;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>پنل کامل مشتری</div>
-        <div style="margin-top:4px;background:#7c3aed;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#fff">€170 / ماه</div>
-      </div>
-    </div>
-    <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--color-border-secondary)">
-      <div style="background:#e0e0e0;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:#616161;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">رقیب</div>
-        <div style="font-size:15px;font-weight:800;color:#424242">Idealista Pro</div>
-      </div>
-      <div style="background:var(--color-background-secondary);padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>بدون White-label</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>فقط آگهی ملک</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>بدون lead capture</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>بدون پنل مشتری</div>
-        <div style="margin-top:4px;background:#e0e0e0;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#424242">€400+ / ماه</div>
-      </div>
-    </div>
-    <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--color-border-secondary)">
-      <div style="background:#e0e0e0;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:#616161;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">رقیب</div>
-        <div style="font-size:15px;font-weight:800;color:#424242">CRM عمومی</div>
-      </div>
-      <div style="background:var(--color-background-secondary);padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>بدون White-label</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>بدون راهنمای حقوقی</div>
-        <div style="font-size:12.5px;color:#2e7d52;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#a5d6a7;color:#2e7d52;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</span>Lead capture (پایه)</div>
-        <div style="font-size:12.5px;color:#2e7d52;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#a5d6a7;color:#2e7d52;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</span>پنل (عمومی)</div>
-        <div style="margin-top:4px;background:#e0e0e0;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#424242">€200+ / ماه</div>
-      </div>
-    </div>
-    <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--color-border-secondary)">
-      <div style="background:#e0e0e0;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:#616161;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">رقیب</div>
-        <div style="font-size:15px;font-weight:800;color:#424242">مترجم + مشاور</div>
-      </div>
-      <div style="background:var(--color-background-secondary);padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>بدون White-label</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>کند و ناسازگار</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>بدون lead capture</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px;flex-direction:row-reverse"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>بدون پنل</div>
-        <div style="margin-top:4px;background:#e0e0e0;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#424242">€500+ / ماه</div>
-      </div>
-    </div>
-  </div>
-
   <div class="cta cta-fa">
-    <h2>آماده‌اید بازار چندزبانه را تصاحب کنید؟</h2>
-    <p>آژانس‌هایی که زودتر این ابزار را داشته باشند، مشتریانی را جذب می‌کنند که رقبا از دست می‌دهند.<br>فرم را پر کنید — دمو رایگان فوری باز می‌شود.</p>
-    <button class="cta-btn cta-btn-fa" onclick="openModal('fa')">درخواست دمو رایگان ←</button>
-  </div>
-
-  <!-- DEMO MODAL FA -->
-  <div id="modal-fa" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1000;align-items:center;justify-content:center;padding:16px">
-    <div style="background:white;border-radius:20px;padding:28px 24px;max-width:420px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.2)" dir="rtl">
-      <button onclick="closeModal('fa')" style="position:absolute;top:14px;left:14px;background:none;border:none;font-size:20px;cursor:pointer;color:#999">×</button>
-      <div style="text-align:center;margin-bottom:20px">
-        <div style="font-size:32px;margin-bottom:8px">🏡</div>
-        <h3 style="font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:4px">دمو رایگان SpainHome AI</h3>
-        <p style="font-size:13px;color:#666">اطلاعات آژانس خود را وارد کنید — دسترسی فوری</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <div><label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#7c3aed;display:block;margin-bottom:5px">نام آژانس *</label>
-        <input id="fa-agency" type="text" placeholder="مثال: Inmobiliaria Costa Blanca" style="width:100%;padding:10px 13px;border:1.5px solid #e0d0ff;border-radius:10px;font-size:14px;outline:none;font-family:inherit" onfocus="this.style.borderColor='#7c3aed'" onblur="this.style.borderColor='#e0d0ff'"></div>
-        <div><label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#7c3aed;display:block;margin-bottom:5px">نام شما *</label>
-        <input id="fa-name" type="text" placeholder="نام و نام خانوادگی" style="width:100%;padding:10px 13px;border:1.5px solid #e0d0ff;border-radius:10px;font-size:14px;outline:none;font-family:inherit" onfocus="this.style.borderColor='#7c3aed'" onblur="this.style.borderColor='#e0d0ff'"></div>
-        <div><label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#7c3aed;display:block;margin-bottom:5px">ایمیل *</label>
-        <input id="fa-email" type="email" placeholder="agency@email.com" style="width:100%;padding:10px 13px;border:1.5px solid #e0d0ff;border-radius:10px;font-size:14px;outline:none;font-family:inherit" onfocus="this.style.borderColor='#7c3aed'" onblur="this.style.borderColor='#e0d0ff'"></div>
-        <div><label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#7c3aed;display:block;margin-bottom:5px">شماره واتساپ *</label>
-        <input id="fa-phone" type="tel" placeholder="+34 XXX XXX XXX" style="width:100%;padding:10px 13px;border:1.5px solid #e0d0ff;border-radius:10px;font-size:14px;outline:none;font-family:inherit" onfocus="this.style.borderColor='#7c3aed'" onblur="this.style.borderColor='#e0d0ff'"></div>
-        <div><label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#7c3aed;display:block;margin-bottom:5px">مشتریان بین‌المللی در ماه</label>
-        <select id="fa-clients" style="width:100%;padding:10px 13px;border:1.5px solid #e0d0ff;border-radius:10px;font-size:14px;outline:none;font-family:inherit;background:white">
-          <option value="">انتخاب کنید</option>
-          <option value="1-5">۱ تا ۵ مشتری</option>
-          <option value="6-15">۶ تا ۱۵ مشتری</option>
-          <option value="16-30">۱۶ تا ۳۰ مشتری</option>
-          <option value="30+">بیش از ۳۰ مشتری</option>
-        </select></div>
-        <button onclick="submitForm('fa')" style="width:100%;padding:13px;background:#7c3aed;color:white;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:4px">دریافت دمو رایگان ←</button>
-        <p style="font-size:11px;color:#999;text-align:center">Jalil Modir Khazeni — Founder & Developer · SpainHome AI</p>
-      </div>
-    </div>
+    <h2>آماده‌اید بازار بین‌المللی را به دست بگیرید؟</h2>
+    <p>آژانس‌هایی که این ابزار را اول استفاده کنند، مشتریانی را می‌گیرند که رقبایشان همچنان از دست می‌دهند.</p>
+    <button class="cta-btn cta-btn-fa" onclick="openModal()">درخواست دمو رایگان ←</button>
   </div>
 </div>
 
 <!-- ══════════ ENGLISH ══════════ -->
-<div id="en" style="display:none">
-
+<div id="en" class="lang-section">
   <div class="hero hero-en">
-    <div class="hero-badge">🏢 Professional tool for real estate agencies — Spain</div>
-    <h1>Sell to clients your competitors<br>can't even talk to.</h1>
-    <p>SpainHome AI lets your agency guide Iranian, Russian, Arabic, and international buyers in their own language — without hiring multilingual staff.</p>
+    <div class="hero-badge">🏢 Professional Tool for Real Estate Agencies — Spain</div>
+    <h1>Sell to buyers your competitors<br>can't even talk to.</h1>
+    <p>SpainHome AI lets your agency guide Russian, Iranian, Arab, and German buyers in their own language — without hiring multilingual staff.</p>
     <div class="hero-tags">
-      <span class="hero-tag">✦ Full white-label</span>
-      <span class="hero-tag">✦ 5 languages</span>
-      <span class="hero-tag">✦ Agency dashboard</span>
-      <span class="hero-tag">✦ Automatic lead capture</span>
+      <span class="hero-tag">✦ Full White-label</span>
+      <span class="hero-tag">✦ 5 Languages</span>
+      <span class="hero-tag">✦ Agency Dashboard</span>
+      <span class="hero-tag">✦ Automatic Lead Capture</span>
     </div>
   </div>
-
-  <div class="slabel">The real problem Spanish agencies face</div>
-  <div class="pain-grid pain-section">
-    <div class="pain-card pain-en"><div class="pi">😤</div><h3>Language barrier</h3><p>Foreign buyer arrives, agent can't explain — buyer walks out and goes to a competitor.</p></div>
-    <div class="pain-card pain-en"><div class="pi">⏳</div><h3>Time wasted</h3><p>Hours spent educating each foreign buyer about NIE, taxes, and legal process from scratch.</p></div>
-    <div class="pain-card pain-en"><div class="pi">📉</div><h3>Lost sales</h3><p>Buyers unsure of the complex process don't commit — deals fall through before they start.</p></div>
-    <div class="pain-card pain-en"><div class="pi">💸</div><h3>High advisor costs</h3><p>Hiring multilingual staff or a legal consultant for every foreign client is costly and impractical.</p></div>
+  <div class="slabel">The real problem your agency faces</div>
+  <div class="pain-grid">
+    <div class="pain-card"><div class="pi">😤</div><h3>Language barrier</h3><p>Foreign buyer arrives, your agent can't explain NIE or taxes properly — buyer goes to competitor.</p></div>
+    <div class="pain-card"><div class="pi">⏳</div><h3>Time wasted</h3><p>Hours spent educating each international buyer on basics — time your agents should spend closing deals.</p></div>
+    <div class="pain-card"><div class="pi">📉</div><h3>Lost sales</h3><p>Confused buyers don't decide. Deals die because the process feels too complicated and risky.</p></div>
+    <div class="pain-card"><div class="pi">💸</div><h3>High consultant costs</h3><p>Hiring multilingual staff or legal advisors for each client is expensive and unscalable.</p></div>
   </div>
-
-  <div class="slabel">Target market — why now?</div>
+  <div class="slabel">The market — why now?</div>
   <div class="stats">
-    <div class="stat stat-en"><div class="num">90k+</div><div class="lbl">Iranians in Spain</div></div>
-    <div class="stat stat-en"><div class="num">150k+</div><div class="lbl">Russians in Spain</div></div>
-    <div class="stat stat-en"><div class="num">200k+</div><div class="lbl">Arabic buyers annually</div></div>
-    <div class="stat stat-en"><div class="num">€8,500</div><div class="lbl">avg. commission per sale</div></div>
+    <div class="stat stat-en"><div class="num">73%</div><div class="lbl">of foreign buyers leave due to language barrier</div></div>
+    <div class="stat stat-en"><div class="num">+150k</div><div class="lbl">Russian residents in Spain</div></div>
+    <div class="stat stat-en"><div class="num">+200k</div><div class="lbl">Arab buyers annually</div></div>
+    <div class="stat stat-en"><div class="num">€8,500</div><div class="lbl">average commission per sale</div></div>
   </div>
-
   <div class="slabel">ROI calculation for your agency</div>
   <div class="roi-box roi-en">
     <h3>💰 If the system brings just one extra sale per month:</h3>
     <div class="roi-row"><span class="lbl">Average commission per property sale</span><span class="val-en">€8,500</span></div>
     <div class="roi-row"><span class="lbl">Monthly subscription cost</span><span class="val-en">€149–€299</span></div>
-    <div class="roi-row"><span class="lbl">New reachable clients (multilingual market)</span><span class="val-en">×4 larger pool</span></div>
-    <div class="roi-row"><span class="lbl">⚡ Net monthly gain for your agency</span><span class="val-en">+€8,200+</span></div>
+    <div class="roi-row"><span class="lbl">New accessible market (multilingual)</span><span class="val-en">×4 larger</span></div>
+    <div class="roi-row"><span class="lbl">⚡ Net monthly profit for agency</span><span class="val-en">+€8,200</span></div>
   </div>
-
-  <div class="slabel">Real scenario — success story</div>
-  <div class="usecase">
-    <div class="usecase-header">
-      <div class="uc-icon">🏘️</div>
-      <div><h3>Inmobiliaria Costa Blanca — Alicante</h3><p>Sample scenario with an Iranian buyer</p></div>
-    </div>
-    <div class="uc-steps">
-      <div class="uc-step"><div class="uc-num uc-num-en">1</div><p>A buyer with a €280,000 budget contacts the agency. The Spanish agent doesn't know how to explain NIE, ITP tax, and the legal process.</p></div>
-      <div class="uc-step"><div class="uc-num uc-num-en">2</div><p><strong>The agency sends their branded SpainHome AI link.</strong> The buyer receives a complete Persian guide, cost calculator, and AI chat — all under the agency's brand.</p></div>
-      <div class="uc-step"><div class="uc-num uc-num-en">3</div><p>The buyer returns confident. <strong>The agency dashboard shows</strong> the client selected Alicante region, €280k budget, investment goal.</p></div>
-      <div class="uc-step"><div class="uc-num uc-num-en">4</div><p>The agent knows exactly what to show. <strong>Conversion rate from viewing to sale triples</strong> compared to unguided foreign buyers.</p></div>
-    </div>
-  </div>
-
-  <div class="slabel">System features for agencies</div>
+  <div class="slabel">What SpainHome AI does for your agency</div>
   <div class="features">
-    <div class="feat feat-en"><div class="fi">🎨</div><h3>Full white-label</h3><p>Your logo, colors, domain — clients think it's your own proprietary tool</p></div>
-    <div class="feat feat-en"><div class="fi">📊</div><h3>Agency dashboard</h3><p>See where each client is in the process, their budget, and preferred region</p></div>
-    <div class="feat feat-en"><div class="fi">🎯</div><h3>Lead generation</h3><p>Contact data and full client profile automatically saved in your agency panel</p></div>
-    <div class="feat feat-en"><div class="fi">🏠</div><h3>Your property listings</h3><p>Add your own listings — the system shows them to the right clients automatically</p></div>
-    <div class="feat feat-en"><div class="fi">💬</div><h3>Multilingual AI chat</h3><p>Client asks in Persian, Russian, Arabic — AI responds under your agency brand</p></div>
-    <div class="feat feat-en"><div class="fi">🧮</div><h3>Cost calculator</h3><p>Client sees real purchase costs — without repetitive questions to your agents</p></div>
-    <div class="feat feat-en"><div class="fi">🛂</div><h3>Visa guide 2025</h3><p>After Golden Visa abolition, clients learn residency alternatives from your system</p></div>
-    <div class="feat feat-en"><div class="fi">📈</div><h3>Monthly reports</h3><p>Client volume, languages, budgets, preferred regions — to optimise your marketing</p></div>
+    <div class="feat feat-en"><div class="fi">🎨</div><h3>Full White-label</h3><p>Your logo, colors, domain — buyers think it's your own agency tool.</p></div>
+    <div class="feat feat-en"><div class="fi">📊</div><h3>Agency Dashboard</h3><p>See where each client is in the process, their budget, and preferred region.</p></div>
+    <div class="feat feat-en"><div class="fi">🎯</div><h3>Lead Generation</h3><p>Contact details and full buyer profile saved automatically in your panel.</p></div>
+    <div class="feat feat-en"><div class="fi">💬</div><h3>Multilingual AI Chat</h3><p>Buyer asks in Russian, Arabic, Persian — AI answers under your agency brand.</p></div>
+    <div class="feat feat-en"><div class="fi">🧮</div><h3>Cost Calculator</h3><p>Buyer sees real purchase costs — no more repetitive questions to your agents.</p></div>
+    <div class="feat feat-en"><div class="fi">🛂</div><h3>2025 Visa Guide</h3><p>After Golden Visa cancellation, buyers learn alternatives directly from your system.</p></div>
   </div>
-
-  <div class="slabel">Why Google Translate or ChatGPT isn't enough</div>
-  <div class="moat-box">
-    <h3>SpainHome AI competitive advantage</h3>
-    <div class="moat-grid">
-      <div class="moat-item moat-us"><div class="mt">✓ SpainHome AI</div><p>Specialist Spanish legal content, updated 2025, integrated with agency panel and lead capture</p></div>
-      <div class="moat-item moat-them"><div class="mt">✗ Generic ChatGPT</div><p>General information, often outdated, no agency branding, zero client data capture</p></div>
-      <div class="moat-item moat-us"><div class="mt">✓ SpainHome AI</div><p>Client stays inside your agency ecosystem — you own the data and the relationship</p></div>
-      <div class="moat-item moat-them"><div class="mt">✗ Google Translate</div><p>Translates text, doesn't guide — leaves the client more confused, not more confident</p></div>
+  <div class="slabel">Real-world scenario</div>
+  <div class="usecase">
+    <div class="usecase-header"><div class="uc-icon">🏘️</div><div><h3>Costa Blanca Agency — Alicante</h3><p>Sample scenario with a Russian buyer</p></div></div>
+    <div class="uc-steps">
+      <div class="uc-step"><div class="uc-num uc-en">1</div><p>A Russian buyer with a €280,000 budget contacts the agency. The Spanish agent can't explain NIE or ITP tax properly.</p></div>
+      <div class="uc-step"><div class="uc-num uc-en">2</div><p>The agency sends the <strong>SpainHome AI link</strong> with their own branding. The buyer gets a complete Russian-language guide instantly.</p></div>
+      <div class="uc-step"><div class="uc-num uc-en">3</div><p>The buyer returns confident. <strong>The agency dashboard</strong> shows the buyer chose Alicante region with investment goal.</p></div>
+      <div class="uc-step"><div class="uc-num uc-en">4</div><p>The agent knows exactly which properties to show — because the buyer already defined their budget, region, and goal. <strong>The first conversation starts where it should: at the decision, not at square one.</strong></p></div>
     </div>
   </div>
-
   <div class="slabel">Pricing plans</div>
-  <div style="background:#fff8e1;border:1.5px solid #ffe082;border-radius:14px;padding:12px 16px;margin-bottom:12px;font-size:13px;color:#6d4c00">
-    ⚡ <strong>One-time setup fee: €600</strong> — includes installation, white-label configuration, initial training, and system integration for your agency.
-  </div>
   <div class="pricing">
-    <div class="price-card plain price-en">
-      <h3>Starter</h3>
-      <div class="price-num" style="color:#1565c0">€99</div>
-      <div class="price-per">per month</div>
-      <ul>
-        <li>Up to 30 active clients</li>
-        <li>3 languages</li>
-        <li>Basic dashboard</li>
-        <li>White-label</li>
-      </ul>
-    </div>
-    <div class="price-card featured-en price-en">
-      <div class="price-badge badge-en">Recommended</div>
-      <h3>Professional</h3>
-      <div class="price-num" style="color:#1565c0">€170</div>
-      <div class="price-per">per month</div>
-      <ul>
-        <li>Unlimited clients</li>
-        <li>All 5 languages</li>
-        <li>Full lead capture</li>
-        <li>Agency listings</li>
-        <li>Full management panel</li>
-        <li>Monthly reports</li>
-      </ul>
-    </div>
-    <div class="price-card plain price-en">
-      <h3>Enterprise</h3>
-      <div class="price-num" style="color:#1565c0">Custom</div>
-      <div class="price-per">multi-branch</div>
-      <ul>
-        <li>Multiple agencies</li>
-        <li>Dedicated API</li>
-        <li>Priority support</li>
-        <li>Team training</li>
-      </ul>
-    </div>
+    <div class="price-card li-en"><h3>Starter</h3><div class="price-num">€199</div><div class="price-per">setup + €149/month</div><ul><li>Up to 50 conversations/month</li><li>5 languages</li><li>Full buying guide</li><li>Cost calculator</li></ul><button class="price-btn secondary" onclick="openModal('Starter')">Get started</button></div>
+    <div class="price-card featured featured-en li-en"><div class="price-badge badge-en">Most popular</div><h3>Professional</h3><div class="price-num">€299</div><div class="price-per">setup + €199/month</div><ul><li>Unlimited conversations</li><li>5 languages</li><li>Document generator</li><li>Lead capture & export</li><li>Your agency branding</li></ul><button class="price-btn primary-en" onclick="openModal('Professional')">Request demo →</button></div>
+    <div class="price-card li-en"><h3>Agency+</h3><div class="price-num">€499</div><div class="price-per">setup + €349/month</div><ul><li>Multi-agent access</li><li>CRM integration</li><li>Monthly lead reports</li><li>Priority support</li></ul><button class="price-btn secondary" onclick="openModal('Agency+')">Contact us</button></div>
   </div>
-
-  <div class="slabel">B2B competitor comparison</div>
-  <div class="tbl-wrap">
-    <table class="comp-table">
-      <thead><tr><th>Feature</th><th class="mine">SpainHome AI</th><th>Idealista Pro</th><th>Generic CRM</th><th>Translator + advisor</th></tr></thead>
-      <tbody>
-        <tr><td>White-label for agency</td><td class="en-us">✓</td><td class="bad">✗</td><td class="bad">✗</td><td class="bad">✗</td></tr>
-        <tr><td>Multilingual legal guide</td><td class="en-us">✓ 5 languages</td><td class="bad">✗</td><td class="bad">✗</td><td class="bad">Slow & expensive</td></tr>
-        <tr><td>Automatic lead capture</td><td class="en-us">✓</td><td class="bad">Partial</td><td class="en-us">✓ (no content)</td><td class="bad">✗</td></tr>
-        <tr><td>Client profile dashboard</td><td class="en-us">✓ full</td><td class="bad">✗</td><td class="en-us">✓ (generic)</td><td class="bad">✗</td></tr>
-        <tr><td>Monthly cost</td><td class="en-us">€149–€299</td><td class="bad">€400+</td><td class="bad">€200+ (no content)</td><td class="bad">€500+ /month</td></tr>
-      </tbody>
-    </table>
-  </div>
-
   <div class="cta cta-en">
-    <h2>Ready to capture the multilingual market?</h2>
-    <p>Agencies that have this tool first will attract clients their competitors keep losing.<br>Fill in the form — instant demo access.</p>
-    <button class="cta-btn cta-btn-en" onclick="openModal('en')">Request free demo →</button>
-  </div>
-</div>
-
-<!-- ══════════ SPANISH ══════════ -->
-<div id="es" style="display:none">
-
-  <div class="hero hero-es">
-    <div class="hero-badge">🏢 Herramienta profesional para agencias inmobiliarias — España</div>
-    <h1>Vende a clientes que tus<br>competidores no pueden atender.</h1>
-    <p>SpainHome AI permite a tu agencia guiar a compradores iraníes, rusos, árabes e internacionales en su propio idioma — sin necesidad de contratar personal multilingüe.</p>
-    <div class="hero-tags">
-      <span class="hero-tag">✦ White-label completo</span>
-      <span class="hero-tag">✦ 5 idiomas</span>
-      <span class="hero-tag">✦ Panel de agencia</span>
-      <span class="hero-tag">✦ Captación automática de leads</span>
-    </div>
-  </div>
-
-  <div class="slabel">El problema real de las agencias españolas</div>
-  <div class="pain-grid pain-section">
-    <div class="pain-card pain-es"><div class="pi">😤</div><h3>Barrera idiomática</h3><p>El comprador extranjero llega, el agente no puede explicar — el cliente se va a la competencia.</p></div>
-    <div class="pain-card pain-es"><div class="pi">⏳</div><h3>Pérdida de tiempo</h3><p>Horas explicando a cada comprador extranjero el NIE, los impuestos y el proceso legal desde cero.</p></div>
-    <div class="pain-card pain-es"><div class="pi">📉</div><h3>Ventas perdidas</h3><p>Compradores inseguros ante el proceso complejo no se comprometen — las operaciones no llegan a cerrarse.</p></div>
-    <div class="pain-card pain-es"><div class="pi">💸</div><h3>Alto coste de asesoría</h3><p>Contratar personal multilingüe o asesor jurídico para cada cliente extranjero es caro e inviable.</p></div>
-  </div>
-
-  <div class="slabel">Mercado objetivo — ¿por qué ahora?</div>
-  <div class="stats">
-    <div class="stat stat-es"><div class="num">90k+</div><div class="lbl">iraníes en España</div></div>
-    <div class="stat stat-es"><div class="num">150k+</div><div class="lbl">rusos en España</div></div>
-    <div class="stat stat-es"><div class="num">200k+</div><div class="lbl">compradores árabes al año</div></div>
-    <div class="stat stat-es"><div class="num">€8.500</div><div class="lbl">comisión media por venta</div></div>
-  </div>
-
-  <div class="slabel">Cálculo de retorno para tu agencia</div>
-  <div class="roi-box roi-es">
-    <h3>💰 Si el sistema trae solo una venta extra al mes:</h3>
-    <div class="roi-row"><span class="lbl">Comisión media por venta de inmueble</span><span class="val-es">€8.500</span></div>
-    <div class="roi-row"><span class="lbl">Coste mensual de suscripción</span><span class="val-es">€149–€299</span></div>
-    <div class="roi-row"><span class="lbl">Nuevos clientes alcanzables (mercado multilingüe)</span><span class="val-es">×4 más amplio</span></div>
-    <div class="roi-row"><span class="lbl">⚡ Beneficio neto mensual para tu agencia</span><span class="val-es">+€8.200+</span></div>
-  </div>
-
-  <div class="slabel">Escenario real — caso de éxito</div>
-  <div class="usecase">
-    <div class="usecase-header">
-      <div class="uc-icon">🏘️</div>
-      <div><h3>Inmobiliaria Costa Blanca — Alicante</h3><p>Escenario de ejemplo con comprador iraní</p></div>
-    </div>
-    <div class="uc-steps">
-      <div class="uc-step"><div class="uc-num uc-num-es">1</div><p>Un comprador con presupuesto de €280.000 contacta la agencia. El agente español no sabe cómo explicar NIE, ITP y el proceso legal.</p></div>
-      <div class="uc-step"><div class="uc-num uc-num-es">2</div><p><strong>La agencia envía su enlace SpainHome AI con su propia marca.</strong> El cliente recibe una guía completa en persa, calculadora de costes y chat IA — todo bajo la marca de la agencia.</p></div>
-      <div class="uc-step"><div class="uc-num uc-num-es">3</div><p>El cliente vuelve con total confianza. <strong>El panel de agencia muestra</strong> que eligió la región de Alicante, presupuesto €280k, objetivo inversión.</p></div>
-      <div class="uc-step"><div class="uc-num uc-num-es">4</div><p>El agente sabe exactamente qué propiedades mostrar. <strong>La tasa de conversión de visita a venta se triplica</strong> frente a compradores extranjeros sin guía.</p></div>
-    </div>
-  </div>
-
-  <div class="slabel">Funcionalidades del sistema para agencias</div>
-  <div class="features">
-    <div class="feat feat-es"><div class="fi">🎨</div><h3>White-label completo</h3><p>Tu logo, colores y dominio — el cliente cree que es tu herramienta propia</p></div>
-    <div class="feat feat-es"><div class="fi">📊</div><h3>Panel de agencia</h3><p>Ve en qué fase está cada cliente, su presupuesto y la región que prefiere</p></div>
-    <div class="feat feat-es"><div class="fi">🎯</div><h3>Captación de leads</h3><p>Datos de contacto y perfil completo del cliente guardados automáticamente en tu panel</p></div>
-    <div class="feat feat-es"><div class="fi">🏠</div><h3>Tus inmuebles</h3><p>Añade tus propias propiedades — el sistema las muestra a los clientes adecuados</p></div>
-    <div class="feat feat-es"><div class="fi">💬</div><h3>Chat IA multilingüe</h3><p>El cliente pregunta en persa, ruso, árabe — la IA responde bajo tu marca</p></div>
-    <div class="feat feat-es"><div class="fi">🧮</div><h3>Calculadora de costes</h3><p>El cliente ve los costes reales de compra — sin preguntas repetitivas a tus agentes</p></div>
-    <div class="feat feat-es"><div class="fi">🛂</div><h3>Guía de visados 2025</h3><p>Tras la supresión de la Visa de Oro, los clientes aprenden las alternativas desde tu sistema</p></div>
-    <div class="feat feat-es"><div class="fi">📈</div><h3>Informes mensuales</h3><p>Volumen de clientes, idiomas, presupuestos y regiones preferidas para optimizar tu marketing</p></div>
-  </div>
-
-  <div class="slabel">Por qué Google Translate o ChatGPT no son suficientes</div>
-  <div class="moat-box">
-    <h3>Ventaja competitiva de SpainHome AI</h3>
-    <div class="moat-grid">
-      <div class="moat-item moat-us"><div class="mt">✓ SpainHome AI</div><p>Contenido jurídico especializado en España, actualizado 2025, integrado con panel y captación de leads</p></div>
-      <div class="moat-item moat-them"><div class="mt">✗ ChatGPT genérico</div><p>Información general, a menudo desfasada, sin marca de agencia, sin captura de datos del cliente</p></div>
-      <div class="moat-item moat-us"><div class="mt">✓ SpainHome AI</div><p>El cliente permanece en el ecosistema de tu agencia — tú eres dueño de los datos y la relación</p></div>
-      <div class="moat-item moat-them"><div class="mt">✗ Google Translate</div><p>Traduce texto, no guía — deja al cliente más confundido, no más seguro</p></div>
-    </div>
-  </div>
-
-  <div class="slabel">Planes de precios</div>
-  <div style="background:#fff8e1;border:1.5px solid #ffe082;border-radius:14px;padding:12px 16px;margin-bottom:12px;font-size:13px;color:#6d4c00">
-    ⚡ <strong>Configuración inicial (pago único): €600</strong> — incluye instalación, configuración white-label, formación inicial e integración con los sistemas de tu agencia.
-  </div>
-  <div class="pricing">
-    <div class="price-card plain price-es">
-      <h3>Starter</h3>
-      <div class="price-num" style="color:#c62828">€99</div>
-      <div class="price-per">al mes</div>
-      <ul>
-        <li>Hasta 30 clientes activos</li>
-        <li>3 idiomas</li>
-        <li>Panel básico</li>
-        <li>White-label</li>
-      </ul>
-    </div>
-    <div class="price-card featured-es price-es">
-      <div class="price-badge badge-es">Recomendado</div>
-      <h3>Professional</h3>
-      <div class="price-num" style="color:#c62828">€170</div>
-      <div class="price-per">al mes</div>
-      <ul>
-        <li>Clientes ilimitados</li>
-        <li>5 idiomas completos</li>
-        <li>Captación total de leads</li>
-        <li>Inmuebles de agencia</li>
-        <li>Panel de gestión completo</li>
-        <li>Informes mensuales</li>
-      </ul>
-    </div>
-    <div class="price-card plain price-es">
-      <h3>Enterprise</h3>
-      <div class="price-num" style="color:#c62828">A medida</div>
-      <div class="price-per">multisucursal</div>
-      <ul>
-        <li>Varias agencias</li>
-        <li>API dedicada</li>
-        <li>Soporte prioritario</li>
-        <li>Formación del equipo</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="slabel">Comparativa B2B con la competencia</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:1.5rem">
-    <div style="border-radius:16px;overflow:hidden;border:2px solid #c62828">
-      <div style="background:#c62828;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">Tú eliges</div>
-        <div style="font-size:15px;font-weight:800;color:#fff">SpainHome AI</div>
-      </div>
-      <div style="background:#fff5f5;padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#b71c1c;font-weight:700;display:flex;align-items:center;gap:6px"><span style="background:#c62828;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>White-label completo</div>
-        <div style="font-size:12.5px;color:#b71c1c;font-weight:700;display:flex;align-items:center;gap:6px"><span style="background:#c62828;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>Guía legal 5 idiomas</div>
-        <div style="font-size:12.5px;color:#b71c1c;font-weight:700;display:flex;align-items:center;gap:6px"><span style="background:#c62828;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>Lead capture automático</div>
-        <div style="font-size:12.5px;color:#b71c1c;font-weight:700;display:flex;align-items:center;gap:6px"><span style="background:#c62828;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>Panel perfil de cliente</div>
-        <div style="margin-top:4px;background:#c62828;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#fff">€170 / mes</div>
-      </div>
-    </div>
-    <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--color-border-secondary)">
-      <div style="background:#e0e0e0;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:#616161;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">Competidor</div>
-        <div style="font-size:15px;font-weight:800;color:#424242">Idealista Pro</div>
-      </div>
-      <div style="background:var(--color-background-secondary);padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Sin white-label</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Solo anuncios</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Sin lead capture</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Sin panel cliente</div>
-        <div style="margin-top:4px;background:#e0e0e0;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#424242">€400+ / mes</div>
-      </div>
-    </div>
-    <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--color-border-secondary)">
-      <div style="background:#e0e0e0;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:#616161;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">Competidor</div>
-        <div style="font-size:15px;font-weight:800;color:#424242">CRM genérico</div>
-      </div>
-      <div style="background:var(--color-background-secondary);padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Sin white-label</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Sin guía legal</div>
-        <div style="font-size:12.5px;color:#2e7d52;display:flex;align-items:center;gap:6px"><span style="background:#a5d6a7;color:#2e7d52;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</span>Lead capture (básico)</div>
-        <div style="font-size:12.5px;color:#2e7d52;display:flex;align-items:center;gap:6px"><span style="background:#a5d6a7;color:#2e7d52;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</span>Panel (genérico)</div>
-        <div style="margin-top:4px;background:#e0e0e0;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#424242">€200+ / mes</div>
-      </div>
-    </div>
-    <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--color-border-secondary)">
-      <div style="background:#e0e0e0;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:#616161;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">Competidor</div>
-        <div style="font-size:15px;font-weight:800;color:#424242">Traductor + asesor</div>
-      </div>
-      <div style="background:var(--color-background-secondary);padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Sin white-label</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Lento e inconsistente</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Sin lead capture</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Sin panel</div>
-        <div style="margin-top:4px;background:#e0e0e0;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#424242">€500+ / mes</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="cta cta-es">
-    <h2>¿Listo para capturar el mercado multilingüe?</h2>
-    <p>Las agencias que tengan esta herramienta primero atraerán a los clientes que sus competidores siguen perdiendo.<br>Rellena el formulario — acceso al demo inmediato.</p>
-    <button class="cta-btn cta-btn-es" onclick="openModal('es')">Solicitar demo gratuita →</button>
+    <h2>Ready to serve every international buyer?</h2>
+    <p>Agencies that adopt this first win clients their competitors keep losing. One free demo is all it takes.</p>
+    <button class="cta-btn cta-btn-en" onclick="openModal()">Request Free Demo →</button>
   </div>
 </div>
 
 <!-- ══════════ RUSSIAN ══════════ -->
-<div id="ru" style="display:none">
-
+<div id="ru" class="lang-section">
   <div class="hero hero-ru">
     <div class="hero-badge">🏢 Профессиональный инструмент для агентств недвижимости — Испания</div>
-    <h1>Продавайте клиентам, с которыми<br>конкуренты не могут говорить.</h1>
-    <p>SpainHome AI позволяет вашему агентству сопровождать иранских, русских, арабских и международных покупателей на их родном языке — без найма многоязычного персонала.</p>
+    <h1>Продавайте покупателям,<br>с которыми конкуренты не могут говорить.</h1>
+    <p>SpainHome AI позволяет вашему агентству консультировать русских, иранских, арабских и немецких покупателей на их языке — без найма многоязычного персонала.</p>
     <div class="hero-tags">
-      <span class="hero-tag">✦ Полный white-label</span>
+      <span class="hero-tag">✦ Полный White-label</span>
       <span class="hero-tag">✦ 5 языков</span>
-      <span class="hero-tag">✦ Панель агентства</span>
+      <span class="hero-tag">✦ Панель управления</span>
       <span class="hero-tag">✦ Автоматический сбор лидов</span>
     </div>
   </div>
-
   <div class="slabel">Реальная проблема испанских агентств</div>
-  <div class="pain-grid pain-section">
-    <div class="pain-card pain-ru"><div class="pi">😤</div><h3>Языковой барьер</h3><p>Иностранный покупатель приходит, агент не может объяснить — клиент уходит к конкуренту.</p></div>
-    <div class="pain-card pain-ru"><div class="pi">⏳</div><h3>Потеря времени</h3><p>Часы уходят на объяснение каждому иностранцу NIE, налогов и юридического процесса с нуля.</p></div>
-    <div class="pain-card pain-ru"><div class="pi">📉</div><h3>Потерянные сделки</h3><p>Покупатели, неуверенные в сложном процессе, не решаются — сделки срываются, не начавшись.</p></div>
-    <div class="pain-card pain-ru"><div class="pi">💸</div><h3>Высокие расходы</h3><p>Нанять многоязычный персонал или юридического консультанта для каждого клиента — дорого и нереально.</p></div>
+  <div class="pain-grid">
+    <div class="pain-card"><div class="pi">😤</div><h3>Языковой барьер</h3><p>Иностранный покупатель приходит — агент не может объяснить NIE или налоги. Клиент уходит к конкуренту.</p></div>
+    <div class="pain-card"><div class="pi">⏳</div><h3>Потеря времени</h3><p>Часы тратятся на объяснение основ каждому иностранному клиенту вместо закрытия сделок.</p></div>
+    <div class="pain-card"><div class="pi">📉</div><h3>Потерянные продажи</h3><p>Неуверенный покупатель не решается. Сделки срываются из-за сложности процесса.</p></div>
+    <div class="pain-card"><div class="pi">💸</div><h3>Высокие затраты</h3><p>Нанимать многоязычных сотрудников или юридических консультантов для каждого клиента — дорого и неэффективно.</p></div>
   </div>
-
-  <div class="slabel">Целевой рынок — почему сейчас?</div>
+  <div class="slabel">Рынок — почему сейчас?</div>
   <div class="stats">
-    <div class="stat stat-ru"><div class="num">90k+</div><div class="lbl">иранцев в Испании</div></div>
-    <div class="stat stat-ru"><div class="num">150k+</div><div class="lbl">русских в Испании</div></div>
-    <div class="stat stat-ru"><div class="num">200k+</div><div class="lbl">арабских покупателей в год</div></div>
-    <div class="stat stat-ru"><div class="num">€8.500</div><div class="lbl">средняя комиссия за сделку</div></div>
+    <div class="stat stat-ru"><div class="num">+150k</div><div class="lbl">россиян проживает в Испании</div></div>
+    <div class="stat stat-ru"><div class="num">73%</div><div class="lbl">иностранных покупателей уходят из-за языкового барьера</div></div>
+    <div class="stat stat-ru"><div class="num">€8,500</div><div class="lbl">средняя комиссия с одной продажи</div></div>
+    <div class="stat stat-ru"><div class="num">×4</div><div class="lbl">расширение доступного рынка</div></div>
   </div>
-
-  <div class="slabel">Расчёт ROI для вашего агентства</div>
+  <div class="slabel">ROI для вашего агентства</div>
   <div class="roi-box roi-ru">
-    <h3>💰 Если система приносит всего одну дополнительную сделку в месяц:</h3>
-    <div class="roi-row"><span class="lbl">Средняя комиссия за продажу недвижимости</span><span class="val-ru">€8.500</span></div>
+    <h3>💰 Если система приносит всего одну дополнительную продажу в месяц:</h3>
+    <div class="roi-row"><span class="lbl">Средняя комиссия с продажи недвижимости</span><span class="val-ru">€8,500</span></div>
     <div class="roi-row"><span class="lbl">Стоимость ежемесячной подписки</span><span class="val-ru">€149–€299</span></div>
-    <div class="roi-row"><span class="lbl">Новые доступные клиенты (многоязычный рынок)</span><span class="val-ru">×4 шире</span></div>
-    <div class="roi-row"><span class="lbl">⚡ Чистая ежемесячная прибыль агентства</span><span class="val-ru">+€8.200+</span></div>
+    <div class="roi-row"><span class="lbl">Новый доступный рынок (многоязычный)</span><span class="val-ru">×4 больше</span></div>
+    <div class="roi-row"><span class="lbl">⚡ Чистая прибыль агентства в месяц</span><span class="val-ru">+€8,200</span></div>
   </div>
-
-  <div class="slabel">Реальный сценарий — история успеха</div>
-  <div class="usecase">
-    <div class="usecase-header">
-      <div class="uc-icon">🏘️</div>
-      <div><h3>Inmobiliaria Costa Blanca — Аликанте</h3><p>Пример сценария с иранским покупателем</p></div>
-    </div>
-    <div class="uc-steps">
-      <div class="uc-step"><div class="uc-num uc-num-ru">1</div><p>Покупатель с бюджетом €280.000 обращается в агентство. Испанский агент не знает, как объяснить NIE, налог ITP и юридический процесс.</p></div>
-      <div class="uc-step"><div class="uc-num uc-num-ru">2</div><p><strong>Агентство отправляет брендированную ссылку SpainHome AI.</strong> Клиент получает полное руководство на персидском, калькулятор расходов и ИИ-чат — всё под брендом агентства.</p></div>
-      <div class="uc-step"><div class="uc-num uc-num-ru">3</div><p>Клиент возвращается уверенным. <strong>Панель агентства показывает:</strong> клиент выбрал регион Аликанте, бюджет €280k, цель — инвестиции.</p></div>
-      <div class="uc-step"><div class="uc-num uc-num-ru">4</div><p>Агент точно знает, что показывать. <strong>Конверсия из просмотра в сделку утраивается</strong> по сравнению с несопровождаемыми иностранными покупателями.</p></div>
-    </div>
-  </div>
-
-  <div class="slabel">Возможности системы для агентств</div>
-  <div class="features">
-    <div class="feat feat-ru"><div class="fi">🎨</div><h3>Полный white-label</h3><p>Ваш логотип, цвета, домен — клиент думает, что это ваш собственный инструмент</p></div>
-    <div class="feat feat-ru"><div class="fi">📊</div><h3>Панель агентства</h3><p>Видите, на каком этапе каждый клиент, его бюджет и предпочтительный регион</p></div>
-    <div class="feat feat-ru"><div class="fi">🎯</div><h3>Сбор лидов</h3><p>Контактные данные и полный профиль клиента сохраняются автоматически в вашей панели</p></div>
-    <div class="feat feat-ru"><div class="fi">🏠</div><h3>Ваши объекты</h3><p>Добавьте собственные объекты — система автоматически показывает их нужным клиентам</p></div>
-    <div class="feat feat-ru"><div class="fi">💬</div><h3>Многоязычный ИИ-чат</h3><p>Клиент спрашивает по-персидски, по-русски, по-арабски — ИИ отвечает под вашим брендом</p></div>
-    <div class="feat feat-ru"><div class="fi">🧮</div><h3>Калькулятор расходов</h3><p>Клиент видит реальные затраты на покупку — без повторяющихся вопросов агентам</p></div>
-    <div class="feat feat-ru"><div class="fi">🛂</div><h3>Визовый гид 2025</h3><p>После отмены Золотой визы клиенты узнают об альтернативах через вашу систему</p></div>
-    <div class="feat feat-ru"><div class="fi">📈</div><h3>Ежемесячные отчёты</h3><p>Поток клиентов, языки, бюджеты, регионы — для оптимизации маркетинга</p></div>
-  </div>
-
-  <div class="slabel">Почему Google Translate или ChatGPT недостаточно</div>
-  <div class="moat-box">
-    <h3>Конкурентное преимущество SpainHome AI</h3>
-    <div class="moat-grid">
-      <div class="moat-item moat-us"><div class="mt">✓ SpainHome AI</div><p>Специализированный юридический контент по Испании, обновлён 2025, интегрирован с панелью и сбором лидов</p></div>
-      <div class="moat-item moat-them"><div class="mt">✗ Обычный ChatGPT</div><p>Общая информация, часто устаревшая, без бренда агентства, без захвата данных клиента</p></div>
-      <div class="moat-item moat-us"><div class="mt">✓ SpainHome AI</div><p>Клиент остаётся в экосистеме вашего агентства — данные и отношения принадлежат вам</p></div>
-      <div class="moat-item moat-them"><div class="mt">✗ Google Translate</div><p>Переводит текст, не направляет — оставляет клиента более растерянным, а не уверенным</p></div>
-    </div>
-  </div>
-
   <div class="slabel">Тарифные планы</div>
-  <div style="background:#fff8e1;border:1.5px solid #ffe082;border-radius:14px;padding:12px 16px;margin-bottom:12px;font-size:13px;color:#6d4c00">
-    ⚡ <strong>Единовременная настройка: €600</strong> — включает установку, настройку white-label, начальное обучение и интеграцию с системами вашего агентства.
-  </div>
   <div class="pricing">
-    <div class="price-card plain price-ru">
-      <h3>Starter</h3>
-      <div class="price-num" style="color:#2e7d52">€99</div>
-      <div class="price-per">в месяц</div>
-      <ul>
-        <li>До 30 активных клиентов</li>
-        <li>3 языка</li>
-        <li>Базовая панель</li>
-        <li>White-label</li>
-      </ul>
-    </div>
-    <div class="price-card featured-ru price-ru">
-      <div class="price-badge badge-ru">Рекомендуем</div>
-      <h3>Professional</h3>
-      <div class="price-num" style="color:#2e7d52">€170</div>
-      <div class="price-per">в месяц</div>
-      <ul>
-        <li>Неограниченные клиенты</li>
-        <li>Все 5 языков</li>
-        <li>Полный сбор лидов</li>
-        <li>Объекты агентства</li>
-        <li>Полная панель управления</li>
-        <li>Ежемесячные отчёты</li>
-      </ul>
-    </div>
-    <div class="price-card plain price-ru">
-      <h3>Enterprise</h3>
-      <div class="price-num" style="color:#2e7d52">Индивидуально</div>
-      <div class="price-per">несколько офисов</div>
-      <ul>
-        <li>Несколько агентств</li>
-        <li>Выделенный API</li>
-        <li>Приоритетная поддержка</li>
-        <li>Обучение команды</li>
-      </ul>
-    </div>
+    <div class="price-card li-ru"><h3>Стартовый</h3><div class="price-num">€199</div><div class="price-per">настройка + €149/мес</div><ul><li>До 50 разговоров/мес</li><li>5 языков</li><li>Полное руководство</li><li>Калькулятор расходов</li></ul><button class="price-btn secondary" onclick="openModal('Starter')">Начать</button></div>
+    <div class="price-card featured featured-ru li-ru"><div class="price-badge badge-ru">Популярный</div><h3>Профессиональный</h3><div class="price-num">€299</div><div class="price-per">настройка + €199/мес</div><ul><li>Безлимитные разговоры</li><li>5 языков</li><li>Генератор документов</li><li>Сбор лидов</li><li>Брендинг агентства</li></ul><button class="price-btn primary-ru" onclick="openModal('Professional')">Запросить демо →</button></div>
+    <div class="price-card li-ru"><h3>Агентство+</h3><div class="price-num">€499</div><div class="price-per">настройка + €349/мес</div><ul><li>Многопользовательский доступ</li><li>Интеграция CRM</li><li>Ежемесячные отчёты</li><li>Приоритетная поддержка</li></ul><button class="price-btn secondary" onclick="openModal('Agency+')">Связаться</button></div>
   </div>
-
-  <div class="slabel">Сравнение с конкурентами B2B</div>
-  <div class="tbl-wrap">
-    <table class="comp-table">
-      <thead><tr><th>Функция</th><th class="mine">SpainHome AI</th><th>Idealista Pro</th><th>Обычная CRM</th><th>Переводчик + советник</th></tr></thead>
-      <tbody>
-        <tr><td>White-label для агентства</td><td class="ru-us">✓</td><td class="bad">✗</td><td class="bad">✗</td><td class="bad">✗</td></tr>
-        <tr><td>Многоязычное правовое руководство</td><td class="ru-us">✓ 5 языков</td><td class="bad">✗</td><td class="bad">✗</td><td class="bad">Медленно и дорого</td></tr>
-        <tr><td>Автоматический сбор лидов</td><td class="ru-us">✓</td><td class="bad">Частично</td><td class="ru-us">✓ (без контента)</td><td class="bad">✗</td></tr>
-        <tr><td>Панель профиля клиента</td><td class="ru-us">✓ полная</td><td class="bad">✗</td><td class="ru-us">✓ (общая)</td><td class="bad">✗</td></tr>
-        <tr><td>Стоимость в месяц</td><td class="ru-us">€149–€299</td><td class="bad">€400+</td><td class="bad">€200+ (без контента)</td><td class="bad">€500+ /мес</td></tr>
-      </tbody>
-    </table>
-  </div>
-
   <div class="cta cta-ru">
-    <h2>Готовы захватить многоязычный рынок?</h2>
-    <p>Агентства, которые получат этот инструмент первыми, будут привлекать клиентов, которых конкуренты продолжают терять.<br>Заполните форму — мгновенный доступ к демо.</p>
-    <button class="cta-btn cta-btn-ru" onclick="openModal('ru')">Запросить бесплатное демо →</button>
+    <h2>Готовы обслуживать каждого иностранного покупателя?</h2>
+    <p>Агентства, которые внедрят это первыми, получат клиентов, которых конкуренты продолжают терять.</p>
+    <button class="cta-btn cta-btn-ru" onclick="openModal()">Запросить бесплатное демо →</button>
+  </div>
+</div>
+
+<!-- ══════════ ARABIC ══════════ -->
+<div id="ar" class="lang-section rtl">
+  <div class="hero hero-ar">
+    <div class="hero-badge">🏢 أداة احترافية لوكالات العقارات — إسبانيا</div>
+    <h1>بيع للمشترين الذين لا يستطيع<br>منافسوك التحدث إليهم.</h1>
+    <p>SpainHome AI يتيح لوكالتك توجيه المشترين الإيرانيين والروس والعرب والألمان بلغتهم الخاصة — دون الحاجة إلى موظفين متعددي اللغات.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">✦ White-label كامل</span>
+      <span class="hero-tag">✦ 5 لغات</span>
+      <span class="hero-tag">✦ لوحة إدارة الوكالة</span>
+      <span class="hero-tag">✦ جمع العملاء المحتملين تلقائياً</span>
+    </div>
+  </div>
+  <div class="slabel">المشكلة الحقيقية لوكالات العقارات الإسبانية</div>
+  <div class="pain-grid">
+    <div class="pain-card"><div class="pi">😤</div><h3>حاجز اللغة</h3><p>يأتي المشتري الأجنبي ولا يستطيع الوكيل شرح NIE أو الضرائب — يذهب العميل للمنافس.</p></div>
+    <div class="pain-card"><div class="pi">⏳</div><h3>إضاعة الوقت</h3><p>ساعات تُقضى في تعليم كل عميل أجنبي عن الأساسيات بدلاً من إغلاق الصفقات.</p></div>
+    <div class="pain-card"><div class="pi">📉</div><h3>خسارة المبيعات</h3><p>المشتري غير المتأكد من العملية المعقدة لا يقرر — وتضيع الصفقة.</p></div>
+    <div class="pain-card"><div class="pi">💸</div><h3>تكاليف مرتفعة</h3><p>توظيف موظفين متعددي اللغات أو مستشارين قانونيين لكل عميل مكلف وغير عملي.</p></div>
+  </div>
+  <div class="slabel">السوق — لماذا الآن؟</div>
+  <div class="stats">
+    <div class="stat stat-fa"><div class="num">+200k</div><div class="lbl">مشترٍ عربي سنوياً في إسبانيا</div></div>
+    <div class="stat stat-fa"><div class="num">73%</div><div class="lbl">من المشترين الأجانب يغادرون بسبب اللغة</div></div>
+    <div class="stat stat-fa"><div class="num">€8,500</div><div class="lbl">متوسط العمولة لكل عملية بيع</div></div>
+    <div class="stat stat-fa"><div class="num">×4</div><div class="lbl">توسع السوق المتاح</div></div>
+  </div>
+  <div class="slabel">العائد على الاستثمار لوكالتك</div>
+  <div class="roi-box roi-fa">
+    <h3>💰 إذا أتى النظام بعملية بيع إضافية واحدة فقط شهرياً:</h3>
+    <div class="roi-row"><span class="lbl">متوسط العمولة لكل عملية بيع</span><span class="val-fa">€8,500</span></div>
+    <div class="roi-row"><span class="lbl">تكلفة الاشتراك الشهري</span><span class="val-fa">€149–€299</span></div>
+    <div class="roi-row"><span class="lbl">العملاء الجدد المتاحون (متعدد اللغات)</span><span class="val-fa">×4 أكبر</span></div>
+    <div class="roi-row"><span class="lbl">⚡ صافي الربح الشهري للوكالة</span><span class="val-fa">+€8,200</span></div>
+  </div>
+  <div class="slabel">الخطط والأسعار</div>
+  <div class="pricing">
+    <div class="price-card li-ar"><h3>المبتدئ</h3><div class="price-num">€199</div><div class="price-per">إعداد + €149/شهر</div><ul><li>حتى 50 محادثة/شهر</li><li>5 لغات</li><li>دليل الشراء الكامل</li><li>حاسبة التكاليف</li></ul><button class="price-btn secondary" onclick="openModal('Starter')">ابدأ الآن</button></div>
+    <div class="price-card featured featured-fa li-ar"><div class="price-badge badge-fa">الأكثر طلباً</div><h3>الاحترافي</h3><div class="price-num">€299</div><div class="price-per">إعداد + €199/شهر</div><ul><li>محادثات غير محدودة</li><li>5 لغات</li><li>مولّد الوثائق</li><li>جمع العملاء المحتملين</li><li>علامتك التجارية</li></ul><button class="price-btn primary-ar" onclick="openModal('Professional')">طلب عرض توضيحي ←</button></div>
+    <div class="price-card li-ar"><h3>وكالة+</h3><div class="price-num">€499</div><div class="price-per">إعداد + €349/شهر</div><ul><li>وصول متعدد الوكلاء</li><li>تكامل CRM</li><li>تقارير شهرية</li><li>دعم ذو أولوية</li></ul><button class="price-btn secondary" onclick="openModal('Agency+')">تواصل معنا</button></div>
+  </div>
+  <div class="cta cta-fa">
+    <h2>هل أنت مستعد لخدمة كل مشترٍ دولي؟</h2>
+    <p>الوكالات التي تعتمد هذا أولاً تكسب العملاء الذين يستمر منافسوها في خسارتهم.</p>
+    <button class="cta-btn cta-btn-fa" onclick="openModal()">طلب عرض توضيحي مجاني ←</button>
   </div>
 </div>
 
 <!-- ══════════ GERMAN ══════════ -->
-<div id="de" style="display:none">
-
-  <div class="hero" style="background:linear-gradient(135deg,#1a237e 0%,#283593 55%,#3949ab 100%);border:2px solid #7986cb">
+<div id="de" class="lang-section">
+  <div class="hero hero-de">
     <div class="hero-badge">🏢 Professionelles Tool für Immobilienagenturen — Spanien</div>
-    <h1>Verkaufen Sie an Kunden, mit denen<br>Ihre Konkurrenten nicht sprechen können.</h1>
-    <p>SpainHome AI ermöglicht Ihrer Agentur, iranische, russische, arabische und internationale Käufer in ihrer eigenen Sprache zu begleiten — ohne mehrsprachiges Personal einstellen zu müssen.</p>
+    <h1>Verkaufen Sie an Käufer, mit denen<br>Ihre Konkurrenten nicht sprechen können.</h1>
+    <p>SpainHome AI ermöglicht Ihrer Agentur, russische, iranische, arabische und weitere internationale Käufer in ihrer eigenen Sprache zu beraten — ohne mehrsprachiges Personal einstellen zu müssen.</p>
     <div class="hero-tags">
       <span class="hero-tag">✦ Vollständiges White-label</span>
-      <span class="hero-tag">✦ 6 Sprachen</span>
+      <span class="hero-tag">✦ 5 Sprachen</span>
       <span class="hero-tag">✦ Agentur-Dashboard</span>
       <span class="hero-tag">✦ Automatische Lead-Erfassung</span>
     </div>
   </div>
-
-  <div class="slabel">Das echte Problem spanischer Agenturen</div>
-  <div class="pain-grid pain-section">
-    <div class="pain-card pain-en"><div class="pi">😤</div><h3>Sprachbarriere</h3><p>Ausländischer Käufer kommt, Agent kann nicht erklären — Kunde geht zur Konkurrenz.</p></div>
-    <div class="pain-card pain-en"><div class="pi">⏳</div><h3>Zeitverschwendung</h3><p>Stunden damit verbracht, jedem ausländischen Käufer NIE, Steuern und rechtliche Prozesse von Grund auf zu erklären.</p></div>
-    <div class="pain-card pain-en"><div class="pi">📉</div><h3>Verlorene Verkäufe</h3><p>Käufer, die beim komplexen Prozess unsicher sind, entscheiden sich nicht — Deals scheitern bevor sie beginnen.</p></div>
-    <div class="pain-card pain-en"><div class="pi">💸</div><h3>Hohe Beratungskosten</h3><p>Mehrsprachiges Personal oder einen Rechtsberater für jeden ausländischen Kunden zu engagieren ist teuer und unpraktisch.</p></div>
+  <div class="slabel">Das eigentliche Problem spanischer Immobilienagenturen</div>
+  <div class="pain-grid">
+    <div class="pain-card"><div class="pi">😤</div><h3>Sprachbarriere</h3><p>Ausländischer Käufer kommt — der Makler kann NIE oder Steuern nicht erklären. Kunde geht zum Konkurrenten.</p></div>
+    <div class="pain-card"><div class="pi">⏳</div><h3>Zeitverlust</h3><p>Stunden werden damit verbracht, jedem internationalen Kunden die Grundlagen zu erklären statt Abschlüsse zu erzielen.</p></div>
+    <div class="pain-card"><div class="pi">📉</div><h3>Verlorene Verkäufe</h3><p>Unsichere Käufer entscheiden sich nicht. Deals scheitern, weil der Prozess zu kompliziert erscheint.</p></div>
+    <div class="pain-card"><div class="pi">💸</div><h3>Hohe Beraterkosten</h3><p>Mehrsprachige Mitarbeiter oder Rechtsberater für jeden Kunden einzustellen ist teuer und nicht skalierbar.</p></div>
   </div>
-
-  <div class="slabel">Zielmarkt — warum jetzt?</div>
+  <div class="slabel">Markt — warum jetzt?</div>
   <div class="stats">
-    <div class="stat" style="background:#e8eaf6;border-color:#9fa8da;color:#1a237e"><div class="num">380k+</div><div class="lbl">Deutsche in Spanien</div></div>
-    <div class="stat" style="background:#e8eaf6;border-color:#9fa8da;color:#1a237e"><div class="num">150k+</div><div class="lbl">Russen in Spanien</div></div>
-    <div class="stat" style="background:#e8eaf6;border-color:#9fa8da;color:#1a237e"><div class="num">200k+</div><div class="lbl">Arabische Käufer jährlich</div></div>
-    <div class="stat" style="background:#e8eaf6;border-color:#9fa8da;color:#1a237e"><div class="num">€8.500</div><div class="lbl">Ø Provision pro Verkauf</div></div>
+    <div class="stat stat-de"><div class="num">Nr.1</div><div class="lbl">Deutsche sind größte EU-Käufergruppe in Spanien</div></div>
+    <div class="stat stat-de"><div class="num">73%</div><div class="lbl">der ausländischen Käufer gehen wegen Sprachbarriere</div></div>
+    <div class="stat stat-de"><div class="num">€8,500</div><div class="lbl">durchschnittliche Provision pro Verkauf</div></div>
+    <div class="stat stat-de"><div class="num">×4</div><div class="lbl">Erweiterung des zugänglichen Marktes</div></div>
   </div>
-
   <div class="slabel">ROI-Berechnung für Ihre Agentur</div>
-  <div class="roi-box" style="background:#e8eaf6;border-color:#9fa8da">
+  <div class="roi-box roi-de">
     <h3>💰 Wenn das System nur einen zusätzlichen Verkauf pro Monat bringt:</h3>
-    <div class="roi-row"><span class="lbl">Durchschnittliche Provision pro Immobilienverkauf</span><span style="color:#1a237e;font-weight:700">€8.500</span></div>
-    <div class="roi-row"><span class="lbl">Monatliche Abonnementkosten</span><span style="color:#1a237e;font-weight:700">€149–€170</span></div>
-    <div class="roi-row"><span class="lbl">Neue erreichbare Kunden (mehrsprachiger Markt)</span><span style="color:#1a237e;font-weight:700">×4 größer</span></div>
-    <div class="roi-row"><span class="lbl">⚡ Monatlicher Nettogewinn für Ihre Agentur</span><span style="color:#1a237e;font-weight:700">+€8.200+</span></div>
+    <div class="roi-row"><span class="lbl">Durchschnittliche Provision pro Immobilienverkauf</span><span class="val-de">€8.500</span></div>
+    <div class="roi-row"><span class="lbl">Monatliche Abonnementkosten</span><span class="val-de">€149–€299</span></div>
+    <div class="roi-row"><span class="lbl">Neuer zugänglicher Markt (mehrsprachig)</span><span class="val-de">×4 größer</span></div>
+    <div class="roi-row"><span class="lbl">⚡ Netto-Monatsgewinn für die Agentur</span><span class="val-de">+€8.200</span></div>
   </div>
-
-  <div class="slabel">Praxisbeispiel — Erfolgsgeschichte</div>
-  <div class="usecase">
-    <div class="usecase-header">
-      <div class="uc-icon">🏘️</div>
-      <div><h3>Inmobiliaria Costa Blanca — Alicante</h3><p>Beispielszenario mit einem deutschen Käufer</p></div>
-    </div>
-    <div class="uc-steps">
-      <div class="uc-step"><div class="uc-num" style="background:#1a237e">1</div><p>Ein Käufer mit einem Budget von €320.000 kontaktiert die Agentur. Der spanische Agent weiß nicht, wie er NIE, ITP-Steuer und den rechtlichen Prozess erklären soll.</p></div>
-      <div class="uc-step"><div class="uc-num" style="background:#1a237e">2</div><p><strong>Die Agentur sendet ihren gebrandeten SpainHome AI-Link.</strong> Der Käufer erhält einen vollständigen deutschen Leitfaden, Kostenkalkulator und KI-Chat — alles unter dem Markennamen der Agentur.</p></div>
-      <div class="uc-step"><div class="uc-num" style="background:#1a237e">3</div><p>Der Käufer kehrt selbstsicher zurück. <strong>Das Agentur-Dashboard zeigt:</strong> Region Alicante, Budget €320k, Ziel Eigennutzung.</p></div>
-      <div class="uc-step"><div class="uc-num" style="background:#1a237e">4</div><p>Der Agent weiß genau, welche Objekte er zeigen soll. <strong>Die Konversionsrate von Besichtigung zu Verkauf verdreifacht sich</strong> im Vergleich zu unbegleiteten ausländischen Käufern.</p></div>
-    </div>
-  </div>
-
-  <div class="slabel">Systemfunktionen für Agenturen</div>
-  <div class="features">
-    <div class="feat" style="background:#e8eaf6;border-color:#9fa8da"><div class="fi">🎨</div><h3>Vollständiges White-label</h3><p>Ihr Logo, Ihre Farben, Ihre Domain — Kunden denken, es ist Ihr eigenes Tool</p></div>
-    <div class="feat" style="background:#e8eaf6;border-color:#9fa8da"><div class="fi">📊</div><h3>Agentur-Dashboard</h3><p>Sehen Sie, in welcher Phase jeder Kunde ist, sein Budget und seine bevorzugte Region</p></div>
-    <div class="feat" style="background:#e8eaf6;border-color:#9fa8da"><div class="fi">🎯</div><h3>Lead-Generierung</h3><p>Kontaktdaten und vollständiges Kundenprofil automatisch in Ihrem Panel gespeichert</p></div>
-    <div class="feat" style="background:#e8eaf6;border-color:#9fa8da"><div class="fi">🏠</div><h3>Ihre Immobilien</h3><p>Fügen Sie eigene Objekte hinzu — das System zeigt sie automatisch den richtigen Kunden</p></div>
-    <div class="feat" style="background:#e8eaf6;border-color:#9fa8da"><div class="fi">💬</div><h3>Mehrsprachiger KI-Chat</h3><p>Kunde fragt auf Deutsch, Persisch, Russisch — KI antwortet unter Ihrer Marke</p></div>
-    <div class="feat" style="background:#e8eaf6;border-color:#9fa8da"><div class="fi">🧮</div><h3>Kostenkalkulator</h3><p>Kunde sieht reale Kaufkosten — ohne wiederholte Fragen an Ihre Agenten</p></div>
-    <div class="feat" style="background:#e8eaf6;border-color:#9fa8da"><div class="fi">🛂</div><h3>Visumleitfaden 2025</h3><p>Nach der Abschaffung des Golden Visa lernen Kunden Alternativen über Ihr System</p></div>
-    <div class="feat" style="background:#e8eaf6;border-color:#9fa8da"><div class="fi">📈</div><h3>Monatsberichte</h3><p>Kundenvolumen, Sprachen, Budgets, bevorzugte Regionen — zur Marketingoptimierung</p></div>
-  </div>
-
-  <div class="slabel">Warum Google Translate oder ChatGPT nicht ausreichen</div>
-  <div class="moat-box">
-    <h3>Wettbewerbsvorteil von SpainHome AI</h3>
-    <div class="moat-grid">
-      <div class="moat-item moat-us"><div class="mt">✓ SpainHome AI</div><p>Spezialisierter spanischer Rechtsinhalt, aktualisiert 2025, integriert mit Agentur-Panel und Lead-Erfassung</p></div>
-      <div class="moat-item moat-them"><div class="mt">✗ Normales ChatGPT</div><p>Allgemeine Informationen, oft veraltet, kein Agentur-Branding, keine Kundendatenerfassung</p></div>
-      <div class="moat-item moat-us"><div class="mt">✓ SpainHome AI</div><p>Kunde bleibt im Ökosystem Ihrer Agentur — Sie besitzen die Daten und die Beziehung</p></div>
-      <div class="moat-item moat-them"><div class="mt">✗ Google Translate</div><p>Übersetzt Text, führt nicht — lässt den Kunden verwirrter, nicht sicherer zurück</p></div>
-    </div>
-  </div>
-
   <div class="slabel">Preispläne</div>
-  <div style="background:#fff8e1;border:1.5px solid #ffe082;border-radius:14px;padding:12px 16px;margin-bottom:12px;font-size:13px;color:#6d4c00">
-    ⚡ <strong>Einmalige Einrichtungsgebühr: €600</strong> — beinhaltet Installation, White-label-Konfiguration, Erstschulung und Systemintegration für Ihre Agentur.
-  </div>
   <div class="pricing">
-    <div class="price-card plain" style="border-color:#c5cae9">
-      <h3>Starter</h3>
-      <div class="price-num" style="color:#1a237e">€99</div>
-      <div class="price-per">pro Monat</div>
-      <ul style="text-align:left">
-        <li>Bis zu 30 aktive Kunden</li>
-        <li>3 Sprachen</li>
-        <li>Basis-Dashboard</li>
-        <li>White-label</li>
-      </ul>
-    </div>
-    <div class="price-card" style="border:2px solid #1a237e;background:#e8eaf6">
-      <div class="price-badge" style="background:#1a237e;color:#fff">Empfohlen</div>
-      <h3>Professional</h3>
-      <div class="price-num" style="color:#1a237e">€170</div>
-      <div class="price-per">pro Monat</div>
-      <ul style="text-align:left">
-        <li>Unbegrenzte Kunden</li>
-        <li>Alle 6 Sprachen</li>
-        <li>Vollständige Lead-Erfassung</li>
-        <li>Agentur-Immobilien</li>
-        <li>Vollständiges Management-Panel</li>
-        <li>Monatsberichte</li>
-      </ul>
-    </div>
-    <div class="price-card plain" style="border-color:#c5cae9">
-      <h3>Enterprise</h3>
-      <div class="price-num" style="color:#1a237e">Individuell</div>
-      <div class="price-per">mehrere Standorte</div>
-      <ul style="text-align:left">
-        <li>Mehrere Agenturen</li>
-        <li>Dedizierte API</li>
-        <li>Prioritätssupport</li>
-        <li>Team-Schulung</li>
-      </ul>
-    </div>
+    <div class="price-card li-de"><h3>Starter</h3><div class="price-num">€199</div><div class="price-per">Einrichtung + €149/Monat</div><ul><li>Bis zu 50 Gespräche/Monat</li><li>5 Sprachen</li><li>Vollständiger Kaufleitfaden</li><li>Kostenrechner</li></ul><button class="price-btn secondary" onclick="openModal('Starter')">Loslegen</button></div>
+    <div class="price-card featured featured-de li-de"><div class="price-badge badge-de">Beliebteste</div><h3>Professional</h3><div class="price-num">€299</div><div class="price-per">Einrichtung + €199/Monat</div><ul><li>Unbegrenzte Gespräche</li><li>5 Sprachen</li><li>Dokumenten-Generator</li><li>Lead-Erfassung & Export</li><li>Ihr Agentur-Branding</li></ul><button class="price-btn primary-de" onclick="openModal('Professional')">Demo anfordern →</button></div>
+    <div class="price-card li-de"><h3>Agentur+</h3><div class="price-num">€499</div><div class="price-per">Einrichtung + €349/Monat</div><ul><li>Mehrbenutzer-Zugang</li><li>CRM-Integration</li><li>Monatliche Berichte</li><li>Prioritätssupport</li></ul><button class="price-btn secondary" onclick="openModal('Agency+')">Kontakt aufnehmen</button></div>
   </div>
+  <div class="cta cta-de">
+    <h2>Bereit, jeden internationalen Käufer zu bedienen?</h2>
+    <p>Agenturen, die dies zuerst einsetzen, gewinnen Kunden, die ihre Konkurrenten weiterhin verlieren.</p>
+    <button class="cta-btn cta-btn-de" onclick="openModal()">Kostenlose Demo anfordern →</button>
+  </div>
+</div>
 
-  <div class="slabel">B2B-Wettbewerbsvergleich</div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:1.5rem">
-    <div style="border-radius:16px;overflow:hidden;border:2px solid #1a237e">
-      <div style="background:#1a237e;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">Ihre Wahl</div>
-        <div style="font-size:15px;font-weight:800;color:#fff">SpainHome AI</div>
+<!-- ── MODAL ── -->
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <div id="form-state">
+      <div class="modal-header">
+        <h2>🏡 Request Your Free Demo</h2>
+        <p>We'll set up a branded demo for your agency within 24 hours</p>
+        <button class="modal-close" onclick="closeModal()">✕</button>
       </div>
-      <div style="background:#e8eaf6;padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#1a237e;font-weight:700;display:flex;align-items:center;gap:6px"><span style="background:#1a237e;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>Vollständiges White-label</div>
-        <div style="font-size:12.5px;color:#1a237e;font-weight:700;display:flex;align-items:center;gap:6px"><span style="background:#1a237e;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>Rechtsleitfaden 6 Sprachen</div>
-        <div style="font-size:12.5px;color:#1a237e;font-weight:700;display:flex;align-items:center;gap:6px"><span style="background:#1a237e;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>Auto Lead-Erfassung</div>
-        <div style="font-size:12.5px;color:#1a237e;font-weight:700;display:flex;align-items:center;gap:6px"><span style="background:#1a237e;color:#fff;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0">✓</span>Vollständiges Kunden-Panel</div>
-        <div style="margin-top:4px;background:#1a237e;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#fff">€170 / Monat</div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group"><label>Agency Name *</label><input type="text" id="f-agency" placeholder="e.g. Costa Blanca Homes"></div>
+          <div class="form-group"><label>Your Name *</label><input type="text" id="f-name" placeholder="e.g. Carlos García"></div>
+        </div>
+        <div class="form-group"><label>Email Address *</label><input type="email" id="f-email" placeholder="you@youragency.com"></div>
+        <div class="form-group"><label>WhatsApp Number *</label><input type="tel" id="f-whatsapp" placeholder="+34 6XX XXX XXX"></div>
+        <div class="form-row">
+          <div class="form-group"><label>International Clients / Month</label>
+            <select id="f-clients">
+              <option value="1-5">1–5 clients</option>
+              <option value="5-15" selected>5–15 clients</option>
+              <option value="15-30">15–30 clients</option>
+              <option value="30+">30+ clients</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Plan Interested In</label>
+            <select id="f-plan">
+              <option value="Starter">Starter — €149/mo</option>
+              <option value="Professional" selected>Professional — €199/mo</option>
+              <option value="Agency+">Agency+ — €349/mo</option>
+              <option value="Not sure">Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label>Main Buyer Nationalities</label>
+          <select id="f-nationalities">
+            <option value="German & British">German & British</option>
+            <option value="Russian & Eastern European">Russian & Eastern European</option>
+            <option value="Arab & Gulf">Arab & Gulf</option>
+            <option value="Iranian">Iranian</option>
+            <option value="Mixed international">Mixed international</option>
+          </select>
+        </div>
+        <button class="submit-btn" onclick="submitForm()" id="submit-btn">✨ Request My Free Demo</button>
+        <p class="form-note">🔒 Your information is private and will never be shared.</p>
       </div>
     </div>
-    <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--color-border-secondary)">
-      <div style="background:#e0e0e0;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:#616161;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">Konkurrent</div>
-        <div style="font-size:15px;font-weight:800;color:#424242">Idealista Pro</div>
-      </div>
-      <div style="background:var(--color-background-secondary);padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Kein White-label</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Nur Anzeigen</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Keine Lead-Erfassung</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Kein Kunden-Panel</div>
-        <div style="margin-top:4px;background:#e0e0e0;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#424242">€400+ / Monat</div>
-      </div>
-    </div>
-    <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--color-border-secondary)">
-      <div style="background:#e0e0e0;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:#616161;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">Konkurrent</div>
-        <div style="font-size:15px;font-weight:800;color:#424242">Generisches CRM</div>
-      </div>
-      <div style="background:var(--color-background-secondary);padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Kein White-label</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Kein Rechtsleitfaden</div>
-        <div style="font-size:12.5px;color:#2e7d52;display:flex;align-items:center;gap:6px"><span style="background:#a5d6a7;color:#2e7d52;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</span>Lead-Erfassung (basic)</div>
-        <div style="font-size:12.5px;color:#2e7d52;display:flex;align-items:center;gap:6px"><span style="background:#a5d6a7;color:#2e7d52;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✓</span>Panel (generisch)</div>
-        <div style="margin-top:4px;background:#e0e0e0;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#424242">€200+ / Monat</div>
-      </div>
-    </div>
-    <div style="border-radius:16px;overflow:hidden;border:1.5px solid var(--color-border-secondary)">
-      <div style="background:#e0e0e0;padding:10px 14px;text-align:center">
-        <div style="font-size:11px;font-weight:700;color:#616161;text-transform:uppercase;letter-spacing:.6px;margin-bottom:2px">Konkurrent</div>
-        <div style="font-size:15px;font-weight:800;color:#424242">Übersetzer + Berater</div>
-      </div>
-      <div style="background:var(--color-background-secondary);padding:10px 14px;display:flex;flex-direction:column;gap:8px">
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Kein White-label</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Langsam & inkonsistent</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Keine Lead-Erfassung</div>
-        <div style="font-size:12.5px;color:#b71c1c;display:flex;align-items:center;gap:6px"><span style="background:#ef9a9a;color:#b71c1c;border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">✗</span>Kein Panel</div>
-        <div style="margin-top:4px;background:#e0e0e0;border-radius:8px;padding:6px 10px;text-align:center;font-size:13px;font-weight:800;color:#424242">€500+ / Monat</div>
-      </div>
+    <div id="success-state" style="display:none" class="success-state">
+      <div class="success-icon">🎉</div>
+      <h3>Demo Request Received!</h3>
+      <p>Thank you — we'll contact you within <strong>24 hours</strong> via email or WhatsApp to set up your personalised branded demo.</p>
+      <div class="success-detail" id="success-detail"></div>
+      <button class="open-demo-btn" onclick="window.open('spainhome-ai-complete.html','_blank');closeModal()">🏡 Open Live Demo Now →</button>
+      <p style="font-size:12px;color:var(--mid);margin-top:10px">Explore while you wait for your branded version</p>
     </div>
   </div>
+</div>
 
-  <div class="cta" style="background:linear-gradient(135deg,#e8eaf6,#d1d5f0);border-color:#9fa8da">
-    <h2>Bereit, den mehrsprachigen Markt zu erschliessen?</h2>
-    <p>Agenturen, die dieses Tool als erste einsetzen, gewinnen Kunden, die ihre Konkurrenten weiterhin verlieren.<br>Formular ausfuellen — sofortiger Demo-Zugang.</p>
-    <button class="cta-btn" style="background:#1a237e;color:#fff" onclick="openModal('de')">Kostenlose Demo anfragen →</button>
-  </div>
+<div class="lead-log" id="lead-log"></div>
 
-  <div id="modal-de" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1000;align-items:center;justify-content:center;padding:16px">
-    <div style="background:white;border-radius:20px;padding:28px 24px;max-width:420px;width:100%;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.2)">
-      <button onclick="closeModal('de')" style="position:absolute;top:14px;right:14px;background:none;border:none;font-size:20px;cursor:pointer;color:#999">×</button>
-      <div style="text-align:center;margin-bottom:20px">
-        <div style="font-size:32px;margin-bottom:8px">🏡</div>
-        <h3 style="font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:4px">Kostenlose Demo SpainHome AI</h3>
-        <p style="font-size:13px;color:#666">Agentur-Daten eingeben — sofortiger Zugang</p>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:12px">
-        <div><label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1a237e;display:block;margin-bottom:5px">Agenturname *</label>
-        <input id="de-agency" type="text" placeholder="z.B. Inmobiliaria Costa Blanca" style="width:100%;padding:10px 13px;border:1.5px solid #c5cae9;border-radius:10px;font-size:14px;outline:none;font-family:inherit" onfocus="this.style.borderColor='#1a237e'" onblur="this.style.borderColor='#c5cae9'"></div>
-        <div><label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1a237e;display:block;margin-bottom:5px">Ihr Name *</label>
-        <input id="de-name" type="text" placeholder="Vor- und Nachname" style="width:100%;padding:10px 13px;border:1.5px solid #c5cae9;border-radius:10px;font-size:14px;outline:none;font-family:inherit" onfocus="this.style.borderColor='#1a237e'" onblur="this.style.borderColor='#c5cae9'"></div>
-        <div><label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1a237e;display:block;margin-bottom:5px">E-Mail *</label>
-        <input id="de-email" type="email" placeholder="agentur@email.com" style="width:100%;padding:10px 13px;border:1.5px solid #c5cae9;border-radius:10px;font-size:14px;outline:none;font-family:inherit" onfocus="this.style.borderColor='#1a237e'" onblur="this.style.borderColor='#c5cae9'"></div>
-        <div><label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1a237e;display:block;margin-bottom:5px">WhatsApp *</label>
-        <input id="de-phone" type="tel" placeholder="+34 XXX XXX XXX" style="width:100%;padding:10px 13px;border:1.5px solid #c5cae9;border-radius:10px;font-size:14px;outline:none;font-family:inherit" onfocus="this.style.borderColor='#1a237e'" onblur="this.style.borderColor='#c5cae9'"></div>
-        <div><label style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#1a237e;display:block;margin-bottom:5px">Internationale Kunden pro Monat</label>
-        <select id="de-clients" style="width:100%;padding:10px 13px;border:1.5px solid #c5cae9;border-radius:10px;font-size:14px;outline:none;font-family:inherit;background:white">
-          <option value="">Auswählen...</option>
-          <option value="1-5">1-5 Kunden</option>
-          <option value="6-15">6-15 Kunden</option>
-          <option value="16-30">16-30 Kunden</option>
-          <option value="30+">Mehr als 30 Kunden</option>
-        </select></div>
-        <button onclick="submitForm('de')" style="width:100%;padding:13px;background:#1a237e;color:white;border:none;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:4px">Kostenlose Demo erhalten →</button>
-        <p style="font-size:11px;color:#999;text-align:center">Jalil Modir Khazeni — Founder & Developer · SpainHome AI</p>
-      </div>
-    </div>
+<footer style="text-align:center;padding:28px 16px;border-top:1px solid var(--border);margin-top:0;background:white">
+  <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:8px">
+    <div style="font-family:'Playfair Display',serif;font-size:15px;color:var(--dark);font-weight:600">SpainHome AI</div>
+    <div style="font-size:12px;color:var(--mid)">Founder & Developer: <strong>Jalil Modir Khazeni</strong></div>
+    <div style="font-size:11.5px;color:rgba(74,63,53,0.5)">AI Strategist & Author · Alicante, Spain</div>
+    <div style="font-size:11px;color:rgba(74,63,53,0.35);margin-top:4px">© 2025 SpainHome AI · All rights reserved</div>
   </div>
+</footer>
 
 <script>
-function openModal(lang) {
-  var m = document.getElementById('modal-' + lang);
-  if (m) { m.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+// ── LANGUAGE SWITCHER
+function show(lang, btn) {
+  document.querySelectorAll('.lang-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.lang-tabs button').forEach(b => b.classList.remove('active'));
+  document.getElementById(lang).classList.add('active');
+  btn.classList.add('active');
+  document.documentElement.dir = (lang==='fa'||lang==='ar') ? 'rtl' : 'ltr';
+  // Update demo button text per language
+  const labels = {fa:'✨ درخواست دمو رایگان', en:'✨ Request Free Demo', ru:'✨ Запросить демо', ar:'✨ طلب عرض مجاني', de:'✨ Demo anfordern'};
+  document.querySelector('.lang-demo-btn').textContent = labels[lang]||labels.en;
 }
-function closeModal(lang) {
-  var m = document.getElementById('modal-' + lang);
-  if (m) { m.style.display = 'none'; document.body.style.overflow = ''; }
+
+// ── MODAL
+function openModal(plan) {
+  if(plan) document.getElementById('f-plan').value = plan;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(()=>document.getElementById('f-agency').focus(), 350);
 }
-function submitForm(lang) {
-  var agency = document.getElementById(lang+'-agency').value.trim();
-  var name   = document.getElementById(lang+'-name').value.trim();
-  var email  = document.getElementById(lang+'-email').value.trim();
-  var phone  = document.getElementById(lang+'-phone').value.trim();
-  var clients= document.getElementById(lang+'-clients').value;
-  if (!agency || !name || !email || !phone) {
-    alert(lang==='fa'?'لطفاً همه فیلدهای ستاره‌دار را پر کنید':lang==='ru'?'Пожалуйста, заполните все обязательные поля':lang==='es'?'Por favor rellena todos los campos obligatorios':lang==='de'?'Bitte alle Pflichtfelder ausfuellen':'Please fill in all required fields');
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleOverlayClick(e) {
+  if(e.target===document.getElementById('modal-overlay')) closeModal();
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+// ── FORM SUBMIT
+async function submitForm() {
+  const agency   = document.getElementById('f-agency').value.trim();
+  const name     = document.getElementById('f-name').value.trim();
+  const email    = document.getElementById('f-email').value.trim();
+  const whatsapp = document.getElementById('f-whatsapp').value.trim();
+  const clients  = document.getElementById('f-clients').value;
+  const plan     = document.getElementById('f-plan').value;
+  const nats     = document.getElementById('f-nationalities').value;
+
+  if(!agency||!name||!email||!whatsapp) {
+    const id = !agency?'f-agency':!name?'f-name':!email?'f-email':'f-whatsapp';
+    const el = document.getElementById(id);
+    el.style.borderColor='#C45C3A'; el.style.background='#FFF5F5'; el.focus();
+    setTimeout(()=>{ el.style.borderColor=''; el.style.background=''; }, 2500);
     return;
   }
-  var msg = 'Hola! Nuevo lead SpainHome AI\n\nAgencia: ' + agency + '\nNombre: ' + name + '\nEmail: ' + email + '\nTel: ' + phone + '\nClientes/mes: ' + (clients||'No indicado') + '\nIdioma: ' + lang.toUpperCase();
-  var waUrl = 'https://wa.me/34692265552?text=' + encodeURIComponent(msg);
-  closeModal(lang);
-  window.open(waUrl, '_blank');
+  if(!email.includes('@')) {
+    const el=document.getElementById('f-email');
+    el.style.borderColor='#C45C3A'; el.focus();
+    setTimeout(()=>el.style.borderColor='', 2500); return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true; btn.textContent = '⏳ Sending...';
+
+  // Save lead locally
+  const lead = {agency,name,email,whatsapp,clients,plan,nats,time:new Date().toISOString()};
+  try {
+    const leads = JSON.parse(localStorage.getItem('spainhome_leads')||'[]');
+    leads.push(lead);
+    localStorage.setItem('spainhome_leads', JSON.stringify(leads));
+  } catch(e){}
+
+  await new Promise(r=>setTimeout(r,1400));
+
+  // Send to Make.com webhook
+  try {
+    await fetch('https://hook.eu1.make.com/cjpeje983d39l3ieadhdtb1sssjtg2ga', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({agency, name, email, whatsapp, clients, plan, nats, time: new Date().toISOString()})
+    });
+  } catch(e){ console.log('Webhook error:', e); }
+
+  // Show success
+  document.getElementById('form-state').style.display='none';
+  document.getElementById('success-state').style.display='block';
+  document.getElementById('success-detail').innerHTML =
+    `<strong>Agency:</strong> ${agency}<br><strong>Contact:</strong> ${name}<br><strong>Email:</strong> ${email}<br><strong>WhatsApp:</strong> ${whatsapp}<br><strong>Plan:</strong> ${plan}<br><strong>Buyers:</strong> ${nats}`;
+  showToast(`🏡 New lead: ${agency}`);
+
+  btn.disabled=false; btn.textContent='✨ Request My Free Demo';
 }
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') ['fa','en','es','ru','de'].forEach(function(l){ closeModal(l); });
-});
+
+function showToast(msg) {
+  const log=document.getElementById('lead-log');
+  const t=document.createElement('div');
+  t.className='lead-toast';
+  t.innerHTML=`<div class="dot"></div><span>${msg}</span>`;
+  log.appendChild(t);
+  setTimeout(()=>t.remove(),4200);
+}
+
+// Social proof toasts
+const demos=['🏠 Inmobiliaria Sol requested a demo','🏠 Costa Dreams Agency requested a demo','🏠 Alicante Properties requested a demo'];
+let ti=0;
+function nextToast(){ if(ti<demos.length){ showToast(demos[ti++]); setTimeout(nextToast,9000+Math.random()*5000); } }
+setTimeout(nextToast, 6000);
+
+// Admin: open console, type showLeads()
+window.showLeads=()=>{ try{ const l=JSON.parse(localStorage.getItem('spainhome_leads')||'[]'); console.table(l); return l; }catch(e){return [];} };
 </script>
+</body>
+</html>
